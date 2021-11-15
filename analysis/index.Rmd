@@ -8,4 +8,8 @@ editor_options:
   chunk_output_type: console
 ---
 
-Welcome to my research website.
+This website is to track my reading on the book Pattern Recognition and Machine Learning by Christopher M. Bishop.
+
+**Chapter 1: Introduction**
+
++ [1.1 Example: Polynomial Curve Fitting](1_1.html)
