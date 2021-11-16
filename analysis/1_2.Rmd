@@ -1,0 +1,38 @@
+---
+title: "1.2 Probability Theory"
+output:
+  html_document:
+  workflowr::wflow_html:
+    code_folding: hide
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Covariance between two vectors
+
+Given two vectors of random variables $\boldsymbol{x}$ and $\boldsymbol{y}$, the covariance is a <u>**matrix**</u>:
+
+\begin{align}
+\text{cov}(\boldsymbol{x}, \boldsymbol{y}) &= \mathbb{E}_{\boldsymbol{x}, \boldsymbol{y}}[\{\boldsymbol{x}-\mathbb{E}[\boldsymbol{x}]\}\{\boldsymbol{y}^T-\mathbb{E}[\boldsymbol{y}^T]\}] \\
+                                           &= \mathbb{E}_{\boldsymbol{x}, \boldsymbol{y}}[\boldsymbol{x}\boldsymbol{y}^T] - \mathbb{E}[\boldsymbol{x}]\mathbb{E}[\boldsymbol{y}^T].
+\end{align}
+
+Also notation 
+
+$$
+\text{cov}[\boldsymbol{x}] \equiv \text{cov}[\boldsymbol{x}, \boldsymbol{x}].
+$$
+
+# Bootstrap
+
++ **Use**: To determine error bars of an estimator.
+
++ **Process**: Suppose our original data set consists of $N$ data points $\boldsymbol{X} = \{\boldsymbol{x}_1, \dots, \boldsymbol{x}_N\}$. We can create a new data set $\boldsymbol{X}_B$ by drawing $N$ data points at random from $\boldsymbol{X}$, <u>**with replacement**</u>, so that some points in $\boldsymbol{X}$ maybe replicated in $\boldsymbol{X}_B$, whereas other points in $\boldsymbol{X}$ may be absent from $\boldsymbol{X}_B$. This process can be repeated $L$ times to generate $L$ data sets of size $N$. 
+
+
+
+
+

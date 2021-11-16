@@ -13,3 +13,5 @@ This website is to track my reading on the book Pattern Recognition and Machine 
 **Chapter 1: Introduction**
 
 + [1.1 Example: Polynomial Curve Fitting](1_1.html)
+
++ [1.2 Probability Theory](1_2.html)

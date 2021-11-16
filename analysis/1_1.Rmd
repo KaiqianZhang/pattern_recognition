@@ -11,3 +11,21 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Over-fitting problem
+
++ Over-fitting problem can be understood as a general property of maximum likelihood.
+
++ Adopting *Bayesian* approach can avoid over-fitting problem. In a Bayesian model, the effective number of parameters adapts automatically to the size of the data set.
+
++ *Regularization* can also control over-fitting problem.
+
+# Regularization
+
++ Regularization is used to reduce the magnitude of the coefficients.
+
++ *Example: ridge regression*, also konwn as *weight decay* in neural network:
+
+    + $\tilde{E}(\boldsymbol{w})=\frac{1}{2}\sum_{n=1}^{N}\{y(x_n, \boldsymbol{w} ) - t_n\}^2 + \frac{\lambda}{2}||\boldsymbol{w}||^2,$ where $||\boldsymbol{w}||^2=\boldsymbol{w}^T\boldsymbol{w}=w_0^2+w_1^2+\cdots+w_M^2$.
+    
+    + Often $w_0$ is omitted from the regularizer because its inclusion causes the results to depend on the choice of origin for the target variable (Hastie *et al.*, 2001). It may be included with its own regularization coefficient.  
+
