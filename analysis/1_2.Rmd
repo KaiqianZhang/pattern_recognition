@@ -33,6 +33,19 @@ $$
 + **Process**: Suppose our original data set consists of $N$ data points $\boldsymbol{X} = \{\boldsymbol{x}_1, \dots, \boldsymbol{x}_N\}$. We can create a new data set $\boldsymbol{X}_B$ by drawing $N$ data points at random from $\boldsymbol{X}$, <u>**with replacement**</u>, so that some points in $\boldsymbol{X}$ maybe replicated in $\boldsymbol{X}_B$, whereas other points in $\boldsymbol{X}$ may be absent from $\boldsymbol{X}_B$. This process can be repeated $L$ times to generate $L$ data sets of size $N$. 
 
 
+# A prior for the polynomial coefficient $\boldsymbol{w}$
 
+$$
+p(\boldsymbol{w}|\alpha) = \mathcal{N}(\boldsymbol{w}|\boldsymbol{0},\alpha^{-1}\boldsymbol{I})=(\frac{\alpha}{2\pi})^{(M+1)/2}\text{exp}\{-\frac{\alpha}{2}\boldsymbol{w}^T\boldsymbol{w}\},
+$$
+where $\alpha$ is the precision of the distribution, and $M+1$ is the total number of elements in the vector $\boldsymbol{w}$ for an $M$th order polynomial.
 
+# Perspective
+
++ One example in the book shows that maximizing the posterior distribution is equivalent to minimizing the regularized sum-of-squares error function.
+
+# Cross validation
+
+![](assets/cross_validation.png)
+When data is particularly scarce, it may be appropriate to consider the case $S = N$ , where N is the total number of data points, which gives the *leave-one-out* technique.
 
