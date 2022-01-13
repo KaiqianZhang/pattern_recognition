@@ -15,3 +15,11 @@ This website is to track my reading on the book Pattern Recognition and Machine 
 + [1.1 Example: Polynomial Curve Fitting](1_1.html)
 
 + [1.2 Probability Theory](1_2.html)
+
++ [1.6 Information Theory](1_6.html)
+
+**Chapter 2: Probability Distribution**
+
++ [2.3 The Gaussian Distribution](2_3.html)
+
++ [2.4 Multivariate Gaussian distribution](2_4.html)

@@ -1,0 +1,85 @@
+---
+title: "2.3 The Gaussian Distribution"
+output:
+  html_document:
+  workflowr::wflow_html:
+    code_folding: hide
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Gaussian distribution pdf
+
+**To remember**:
+
++ For 1-dimensional $x$:
+
+$$
+\mathcal{N}(x|\mu, \sigma^2) = \frac{1}{(2\pi \sigma^2)^{1/2}}\text{exp}(-\frac{1}{2}\frac{(x-\mu)^2}{\sigma^2});
+$$
+
++ For D-dimensional $\boldsymbol{x}$:
+
+$$
+\mathcal{N}(\boldsymbol{x}|\boldsymbol{\mu}, \boldsymbol{\Sigma}) = \frac{1}{(2\pi)^{D/2}}\frac{1}{|\boldsymbol{\Sigma}|^{1/2}}\text{exp}\left\{ -\frac{1}{2}(\boldsymbol{x}-\boldsymbol{\mu})^T\boldsymbol{\Sigma}^{-1}(\boldsymbol{x}-\boldsymbol{\mu})\right\}.
+$$
+
+And 
+
+$$
+\frac{1}{(2\pi)^{D/2}}\frac{1}{|\boldsymbol{\Sigma}|^{1/2}} \int \text{exp}\left\{ -\frac{1}{2}(\boldsymbol{x}-\boldsymbol{\mu})^T\boldsymbol{\Sigma}^{-1}(\boldsymbol{x}-\boldsymbol{\mu})\right\} d \boldsymbol{x} = 1.
+$$
+## Gaussian distribution properties
+
++ For a single real variable, the distribution that maximizes entropy is Gaussian. Same for multivariate Gaussian.
+
++ Central Limit Theorem (CLT): Under certain mild conditions, the sum of a set random variables, which is of course itself a random variable, has a distribution that becomes Gaussian as the number of terms in the sum increases. 
+
+## Covariance matrix $\boldsymbol{\Sigma}$ properties
+
++ $\boldsymbol{\Sigma}$ needs to be positive semidefinite (i.e its eigenvalues are non-negative) in order for the Gaussian distribution to be well defined. 
+
++ **Eigenvector equation**: for $i=1,\dots, D$,
+
+$$
+\boldsymbol{\Sigma} \boldsymbol{u}_i = \lambda_i \boldsymbol{u}_i
+$$
+
+where $\boldsymbol{u}_i$'s are orthonormal (i.e. $\boldsymbol{u}_i^T\boldsymbol{u}_i=1$). 
+
++ **Rewrite covariance matrix with eigenvectors**: 
+
+\begin{align}
+\boldsymbol{\Sigma} &= \sum_{i=1}^{D} \lambda_i \boldsymbol{u}_i \boldsymbol{u}_i^T \\
+\boldsymbol{\Sigma}^{-1} &= \sum_{i=1}^{D} \lambda_i^{-1} \boldsymbol{u}_i \boldsymbol{u}_i^T \\
+|\boldsymbol{\Sigma}| &= \prod_{i=1}^{D} \lambda_i
+\end{align}
+
+
+## Projection with eigenvectors 
+
+Define 
+
+\begin{align}
+y_i &= \boldsymbol{u}_i^T (\boldsymbol{x}-\boldsymbol{\mu}), \\
+\boldsymbol{y} &=  \boldsymbol{U} (\boldsymbol{x}-\boldsymbol{\mu}) \\
+\end{align}
+
+where each row of $\boldsymbol{U}$ is eigenvector $\boldsymbol{u}_i$ and $\boldsymbol{U}$ is an orthogonal matrix with $\boldsymbol{U}^T\boldsymbol{U} = \boldsymbol{U}\boldsymbol{U}^T = \boldsymbol{I}$.
+
+In going from the $\boldsymbol{x}$ to $\boldsymbol{y}$ coordinate, we have a Jacobian matrix $\boldsymbol{J}$ with
+
+$$
+J_{ij} = \frac{\partial x_i}{\partial y_j} = U_{ji}
+$$
+and $|\boldsymbol{J}|=1$ (why? p.81 (eqn 2.54)). Then 
+
+$$
+p(\boldsymbol{y}) = p(\boldsymbol{x}) |\boldsymbol{J}| = \prod_{i=1}^{D} \frac{1}{(2\pi \lambda_i)^{1/2}} \text{exp}(-\frac{y_i^2}{2\lambda_i})
+$$
+
+is the product of $D$ independent univariate Gaussian distributions. 
+

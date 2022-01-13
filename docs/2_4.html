@@ -11,9 +11,8 @@
 
 
 
-<title>1.2 Probability Theory</title>
+<title>2.4 Multivariate Gaussian distribution</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -44,8 +43,6 @@ div.section {
   padding-top: 12px;
 }
 </style>
-
-
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -360,14 +357,14 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">1.2 Probability Theory</h1>
+<h1 class="title toc-ignore">2.4 Multivariate Gaussian distribution</h1>
 
 </div>
 
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -376,7 +373,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -385,10 +382,10 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-11-18
+<strong>Last updated:</strong> 2022-01-13
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>pattern_recognition/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -404,12 +401,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -496,6 +493,15 @@ Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
+Untracked files:
+    Untracked:  analysis/1_6.Rmd
+    Untracked:  analysis/2_1.Rmd
+    Untracked:  analysis/2_3.Rmd
+    Untracked:  analysis/2_4.Rmd
+
+Unstaged changes:
+    Modified:   analysis/index.Rmd
+
 </code></pre>
 <p>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
@@ -507,141 +513,29 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
-
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/1_2.Rmd</code>) and HTML (<code>docs/1_2.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
 </p>
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-File
-</th>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-<th>
-Message
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/KaiqianZhang/pattern_recognition/blob/88da9243a72ed68f5e325bbecdbed0531f3fd5da/analysis/1_2.Rmd" target="_blank">88da924</a>
-</td>
-<td>
-Kaiqian Zhang
-</td>
-<td>
-2021-11-17
-</td>
-<td>
-add chapter 1-2 and 1-3
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/KaiqianZhang/pattern_recognition/88da9243a72ed68f5e325bbecdbed0531f3fd5da/docs/1_2.html" target="_blank">88da924</a>
-</td>
-<td>
-Kaiqian Zhang
-</td>
-<td>
-2021-11-17
-</td>
-<td>
-add chapter 1-2 and 1-3
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/KaiqianZhang/pattern_recognition/blob/47ba61e36af336f0c63d4dfef372bb4a12aa02b6/analysis/1_2.Rmd" target="_blank">47ba61e</a>
-</td>
-<td>
-Kaiqian Zhang
-</td>
-<td>
-2021-11-16
-</td>
-<td>
-add second day learning
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/KaiqianZhang/pattern_recognition/47ba61e36af336f0c63d4dfef372bb4a12aa02b6/docs/1_2.html" target="_blank">47ba61e</a>
-</td>
-<td>
-Kaiqian Zhang
-</td>
-<td>
-2021-11-16
-</td>
-<td>
-add second day learning
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <hr>
 </div>
 </div>
 </div>
-<div id="covariance-between-two-vectors" class="section level1">
-<h1>Covariance between two vectors</h1>
-<p>Given two vectors of random variables <span class="math inline">\(\boldsymbol{x}\)</span> and <span class="math inline">\(\boldsymbol{y}\)</span>, the covariance is a <u><strong>matrix</strong></u>:</p>
-<p><span class="math display">\[\begin{align}
-\text{cov}(\boldsymbol{x}, \boldsymbol{y}) &amp;= \mathbb{E}_{\boldsymbol{x}, \boldsymbol{y}}[\{\boldsymbol{x}-\mathbb{E}[\boldsymbol{x}]\}\{\boldsymbol{y}^T-\mathbb{E}[\boldsymbol{y}^T]\}] \\
-                                           &amp;= \mathbb{E}_{\boldsymbol{x}, \boldsymbol{y}}[\boldsymbol{x}\boldsymbol{y}^T] - \mathbb{E}[\boldsymbol{x}]\mathbb{E}[\boldsymbol{y}^T].
-\end{align}\]</span></p>
-<p>Also notation</p>
+<div id="notation" class="section level1">
+<h1>Notation</h1>
+<ul>
+<li><span class="math inline">\(\boldsymbol{x}\in \mathbb{R}^D, \boldsymbol{\mu} \in \mathbb{R}^D, \boldsymbol{\Sigma}\in \mathbb{R}^{D\times D}\)</span>.</li>
+</ul>
+</div>
+<div id="central-limit-theorem" class="section level1">
+<h1>Central limit theorem</h1>
+<p><strong>Intuition</strong>: The central limit theorem (due to Laplace) tells us that, subject to certain mild conditions, the sum of a set of random variables, which is of course itself a random variable, has a distribution that becomes increasingly Gaussian as the number of terms in the sum increases (Walker, 1969).</p>
+</div>
+<div id="multivariate-gaussian-distribution" class="section level1">
+<h1>Multivariate Gaussian distribution</h1>
+<p>For a D-dimensional vector <span class="math inline">\(\boldsymbol{x}\)</span>, the multivariate Gaussian distribution pdf has the density (a scalar!):</p>
 <p><span class="math display">\[
-\text{cov}[\boldsymbol{x}] \equiv \text{cov}[\boldsymbol{x}, \boldsymbol{x}].
+\mathcal{N}(\boldsymbol{x}|\boldsymbol{\mu}, \boldsymbol{\Sigma}) = \frac{1}{(2\pi)^{D/2}}\frac{1}{|\boldsymbol{\Sigma}|^{1/2}}\text{exp}\left\{ -\frac{1}{2}(\boldsymbol{x}-\boldsymbol{\mu})^T\boldsymbol{\Sigma}^{-1}(\boldsymbol{x}-\boldsymbol{\mu})\right\}.
 \]</span></p>
-</div>
-<div id="bootstrap" class="section level1">
-<h1>Bootstrap</h1>
-<ul>
-<li><p><strong>Use</strong>: To determine error bars of an estimator.</p></li>
-<li><p><strong>Process</strong>: Suppose our original data set consists of <span class="math inline">\(N\)</span> data points <span class="math inline">\(\boldsymbol{X} = \{\boldsymbol{x}_1, \dots, \boldsymbol{x}_N\}\)</span>. We can create a new data set <span class="math inline">\(\boldsymbol{X}_B\)</span> by drawing <span class="math inline">\(N\)</span> data points at random from <span class="math inline">\(\boldsymbol{X}\)</span>, <u><strong>with replacement</strong></u>, so that some points in <span class="math inline">\(\boldsymbol{X}\)</span> maybe replicated in <span class="math inline">\(\boldsymbol{X}_B\)</span>, whereas other points in <span class="math inline">\(\boldsymbol{X}\)</span> may be absent from <span class="math inline">\(\boldsymbol{X}_B\)</span>. This process can be repeated <span class="math inline">\(L\)</span> times to generate <span class="math inline">\(L\)</span> data sets of size <span class="math inline">\(N\)</span>.</p></li>
-</ul>
-</div>
-<div id="a-prior-for-the-polynomial-coefficient-boldsymbolw" class="section level1">
-<h1>A prior for the polynomial coefficient <span class="math inline">\(\boldsymbol{w}\)</span></h1>
-<p><span class="math display">\[
-p(\boldsymbol{w}|\alpha) = \mathcal{N}(\boldsymbol{w}|\boldsymbol{0},\alpha^{-1}\boldsymbol{I})=(\frac{\alpha}{2\pi})^{(M+1)/2}\text{exp}\{-\frac{\alpha}{2}\boldsymbol{w}^T\boldsymbol{w}\},
-\]</span> where <span class="math inline">\(\alpha\)</span> is the precision of the distribution, and <span class="math inline">\(M+1\)</span> is the total number of elements in the vector <span class="math inline">\(\boldsymbol{w}\)</span> for an <span class="math inline">\(M\)</span>th order polynomial.</p>
-</div>
-<div id="perspective" class="section level1">
-<h1>Perspective</h1>
-<ul>
-<li>One example in the book shows that maximizing the posterior distribution is equivalent to minimizing the regularized sum-of-squares error function.</li>
-</ul>
-</div>
-<div id="cross-validation" class="section level1">
-<h1>Cross validation</h1>
-<p><img src="assets/cross_validation.png" /> When data is particularly scarce, it may be appropriate to consider the case <span class="math inline">\(S = N\)</span> , where N is the total number of data points, which gives the <em>leave-one-out</em> technique.</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -650,13 +544,13 @@ p(\boldsymbol{w}|\alpha) = \mathcal{N}(\boldsymbol{w}|\boldsymbol{0},\alpha^{-1}
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 4.1.1 (2021-08-10)
+<pre><code>R version 4.0.2 (2020-06-22)
 Platform: x86_64-apple-darwin17.0 (64-bit)
-Running under: macOS Big Sur 10.16
+Running under: macOS Catalina 10.15.7
 
 Matrix products: default
-BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib
-LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib
+BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
 
 locale:
 [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
@@ -665,15 +559,15 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.7       whisker_0.4      knitr_1.36       magrittr_2.0.1  
- [5] workflowr_1.6.2  R6_2.5.1         rlang_0.4.12     fastmap_1.1.0   
- [9] fansi_0.5.0      stringr_1.4.0    tools_4.1.1      xfun_0.28       
-[13] utf8_1.2.2       git2r_0.28.0     jquerylib_0.1.4  htmltools_0.5.2 
-[17] ellipsis_0.3.2   rprojroot_2.0.2  yaml_2.2.1       digest_0.6.28   
-[21] tibble_3.1.5     lifecycle_1.0.1  crayon_1.4.2     later_1.3.0     
-[25] vctrs_0.3.8      promises_1.2.0.1 fs_1.5.0         glue_1.5.0      
-[29] evaluate_0.14    rmarkdown_2.11   stringi_1.7.5    compiler_4.1.1  
-[33] pillar_1.6.4     httpuv_1.6.3     pkgconfig_2.0.3 </code></pre>
+ [1] Rcpp_1.0.7       knitr_1.36       magrittr_2.0.1   workflowr_1.6.2 
+ [5] R6_2.5.1         rlang_0.4.12     fastmap_1.1.0    fansi_0.5.0     
+ [9] stringr_1.4.0    tools_4.0.2      xfun_0.28        utf8_1.2.2      
+[13] git2r_0.28.0     jquerylib_0.1.4  htmltools_0.5.2  ellipsis_0.3.2  
+[17] rprojroot_2.0.2  yaml_2.2.1       digest_0.6.28    tibble_3.1.5    
+[21] lifecycle_1.0.1  crayon_1.4.2     later_1.3.0      vctrs_0.3.8     
+[25] promises_1.2.0.1 fs_1.5.0         glue_1.4.2       evaluate_0.14   
+[29] rmarkdown_2.11   stringi_1.7.5    compiler_4.0.2   pillar_1.6.4    
+[33] httpuv_1.6.3     pkgconfig_2.0.3 </code></pre>
 </div>
 </div>
 
@@ -689,8 +583,6 @@ footer is added to webpages before the MathJax javascript. -->
     "HTML-CSS": { availableFonts: ["TeX"] }
   });
 </script>
-
-
 
 
 </div>

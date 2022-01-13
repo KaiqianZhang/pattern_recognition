@@ -1,0 +1,13 @@
+---
+title: "2.1-2.3 Beta-binomial and Dirichlet-multinomial distribution"
+output:
+  html_document:
+  workflowr::wflow_html:
+    code_folding: hide
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+

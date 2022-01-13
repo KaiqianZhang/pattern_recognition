@@ -1,0 +1,109 @@
+---
+title: "1.6 Information Theory"
+output:
+  html_document:
+  workflowr::wflow_html:
+    code_folding: hide
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Information theory interpretation
+
++ The amount of information can be viewed as the "degree of surprise" on learning the value of $x$.
+
++ The measure of information content $h(x)$ will therefore depend on the probability distribution $p(x)$ such that:
+
+$$
+h(x,y) = h(x) + h(y) \text{ versus } p(x,y)=p(x)p(y)
+$$
+
+for two unrelated events.
+
+# Basics of information theory
+
+**Definition for information content**: 
+
+$$
+h(x) = -\text{log}_2p(x)
+$$
+
+
+**Definition for entropy**: expectation of information content.
+
++ Discrete entropy:
+
+$$
+\text{H}[x] = -\sum_x p(x)\text{log}_2p(x),
+$$
+
+is called *entropy of the random variable $x$*. 
+
+
++ Differential entropy: 
+
+$$
+\text{H}[x] = -\int p(x)\text{ ln}p(x) dx.
+$$
+
+
+**Results about entropy**:
+
++ The distribution that maximizes the differential entropy is the Gaussian.
+
++ The differential entropy, unlike the discrete entropy, can be negative.
+
+**Algebra of entropy**:
+
++ $H[x,y] = H[y|x] + H[x]$.
+
+# Relative entropy and mutual information
+
+## KL divergence
+
+**Properties of KL divergence**:
+
++ Not symmetric.
+
++ $\text{KL}(p||q) \geq 0$ with equality iff $p(x)=q(x)$ (proof by Jensen's inequality). 
+
++ KL divergence is relative entropy (same thing).
+
++ We usually want to minimize KL divergence between $p(\boldsymbol{x})$ and $q(\boldsymbol{x}|\boldsymbol{\theta})$. 
+
+**Properties of convex function**:
+
++ If a function $f(x)$ is convex, then $-f(x)$ will be concave.
+
+## Mutual information
+
++ Two definitions:
+
+$$
+\text{I}[x,y] = \text{KL}(p(x,y)||p(x)p(y));
+$$
+
+or 
+
+$$
+\text{I}[x,y] = \text{H}[x] - \text{H}[x|y] = \text{H}[y] - \text{H}[y|x]. 
+$$
+
+
++ *Perspective*: We can view the mutual information as the reduction in the uncertainty about x by virtue of being told the value of y (or vice versa).
+
+
+
+
+
+
+
+
+
+
+
+
+
