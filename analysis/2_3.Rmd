@@ -32,6 +32,7 @@ And
 $$
 \frac{1}{(2\pi)^{D/2}}\frac{1}{|\boldsymbol{\Sigma}|^{1/2}} \int \text{exp}\left\{ -\frac{1}{2}(\boldsymbol{x}-\boldsymbol{\mu})^T\boldsymbol{\Sigma}^{-1}(\boldsymbol{x}-\boldsymbol{\mu})\right\} d \boldsymbol{x} = 1.
 $$
+
 ## Gaussian distribution properties
 
 + For a single real variable, the distribution that maximizes entropy is Gaussian. Same for multivariate Gaussian.
@@ -82,4 +83,27 @@ p(\boldsymbol{y}) = p(\boldsymbol{x}) |\boldsymbol{J}| = \prod_{i=1}^{D} \frac{1
 $$
 
 is the product of $D$ independent univariate Gaussian distributions. 
+
+
+## Conditional Gaussian distributions
+
+**Important property of multivariate Gaussian distribution**: If two sets of variables are jointly Gaussian, then the conditional distribution of one set conditioned on the other is also Gaussian. And the marginal distribution of either set is Gaussian.
+
+
+## Trick: "complete the square" 
+
+"Complete the square" is a trick usually used in Gaussian distribution. We now give the matrix version. Note that the exponent in a general Gaussian distribution $\mathcal{N}(\boldsymbol{x}|\boldsymbol{\mu},\boldsymbol{\Sigma})$ can be written
+
+$$
+-\frac{1}{2}(\boldsymbol{x}-\boldsymbol{\mu})^T\boldsymbol{\Sigma}^{-1}(\boldsymbol{x}-\boldsymbol{\mu}) = -\frac{1}{2}\boldsymbol{x}^T\boldsymbol{\Sigma}^{-1}\boldsymbol{x} + \boldsymbol{x}^T\boldsymbol{\Sigma}^{-1}\boldsymbol{\mu} + \text{const}
+$$
+
+, which is a quadratic form of $\boldsymbol{x}$. 
+
+
+
+
+
+
+
 
