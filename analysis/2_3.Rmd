@@ -7,6 +7,8 @@ output:
     toc: true
 ---
 
+\renewcommand{\bs}{\boldsymbol}
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
@@ -33,6 +35,13 @@ $$
 \frac{1}{(2\pi)^{D/2}}\frac{1}{|\boldsymbol{\Sigma}|^{1/2}} \int \text{exp}\left\{ -\frac{1}{2}(\boldsymbol{x}-\boldsymbol{\mu})^T\boldsymbol{\Sigma}^{-1}(\boldsymbol{x}-\boldsymbol{\mu})\right\} d \boldsymbol{x} = 1.
 $$
 
++ Log-likelihood:
+
+$$
+\text{ln}p(\bs{X|\mu, \Sigma}) = -\frac{ND}{2}\text{ln}(2\pi) - \frac{N}{2}\text{ln}|\bs{\Sigma}| - \frac{1}{2}\sum_{n=1}^{N}(\bs{x}_n - \bs{\mu})^T\bs{\Sigma}(\bs{x}_n - \bs{\mu}).
+$$
+
+
 ## Gaussian distribution properties
 
 + For a single real variable, the distribution that maximizes entropy is Gaussian. Same for multivariate Gaussian.
@@ -58,6 +67,11 @@ where $\boldsymbol{u}_i$'s are orthonormal (i.e. $\boldsymbol{u}_i^T\boldsymbol{
 \boldsymbol{\Sigma}^{-1} &= \sum_{i=1}^{D} \lambda_i^{-1} \boldsymbol{u}_i \boldsymbol{u}_i^T \\
 |\boldsymbol{\Sigma}| &= \prod_{i=1}^{D} \lambda_i
 \end{align}
+
+
+## Central limit theorem
+
+**Intuition**: The central limit theorem (due to Laplace) tells us that, subject to certain mild conditions, the sum of a set of random variables, which is of course itself a random variable, has a distribution that becomes increasingly Gaussian as the number of terms in the sum increases (Walker, 1969).
 
 
 ## Projection with eigenvectors 
@@ -99,6 +113,68 @@ $$
 $$
 
 , which is a quadratic form of $\boldsymbol{x}$. 
+
+
+## Sequential/on-line estimation
+
+Sequential methods allow data points to be processed one at a time and then discarded and are important for on-line applications, and also where large data sets are involved so that batch processing of all data points at once is infeasible. 
+
+For example, the on-line estimation for Gaussian mean. Denote $\bs{\mu}_{ML}^{(N)}$ when the maximum likelihood estimator of $\bs{\mu}_{ML}$ is based on $N$ observations. Then (eqn 2.126)
+
+$$
+\bs{\mu}_{ML}^{(N)} = \bs{\mu}_{ML}^{(N-1)} + \frac{1}{N}(\bs{x}_N - \bs{\mu}_{ML}^{(N-1)}). 
+$$
+
+
+Here is a general algorithm for sequential learning, called *Robbins-Monro algorithm*:
+
+$$
+\theta^{(N)} = \theta^{(N-1)} + a_{N-1} \cdot z(\theta^{(N-1)}),
+$$
+where $z(\theta^{(N)})$ is an observed $z$ value when $\theta$ takes the value of $\theta^{(N)}$ and coefficients $\{a_N\}$ represent a sequence of positive numbers that satisfy the following three conditions:
+
++ $\lim_{N\to \infty} a_N = 0$; (The successive corrections decrease in magnitude so that the process can converge to a limiting value.)
+
++ $\sum_{N=1}^{\infty} a_N = \infty$; (This is required to ensure that the algorithm does not converge short of the root.)
+
++ $\sum_{N=1}^{\infty} a_N^2 < \infty$. (This ensures that the accumulated noise has finite variance and hence does not spoil convergence.)
+
+## Student's t-distribution
+
+Student's t-distribution $\text{St}(x|\mu, \lambda, \nu)$:
+
++ When degrees of freedom $\nu=1$, it becomes Cauchy distribution.
+
++ When degrees of freedom  $\nu \to \infty$, it becomes Gaussian distribution.
+
++ An infinite mixture of Gaussians: it is obtained by adding up aninfinite number of Gaussian distributions having the same mean but different precisions.
+
++ It is heavy-tailed (i.e. longer tails than Gaussian) and thus robust to outliers. 
+
+## *von Mises* distribution
+
+*von Mises* or *circular normal* distribution is a periodic generalization of the Gaussians. 
+
+$$
+p(\theta | \theta_0, m) = \frac{1}{2\pi I_0(m)} \text{exp}\{m\cdot\text{cos}(\theta-\theta_0)\},
+$$
+
+where Here the parameter $\theta_0$ corresponds to the mean of the distribution, while $m$, which is known as
+the concentration parameter, is analogous to the inverse variance (precision) for the Gaussian. The normalization coefficient $I_0(m)$ is the zeroth-order Bessel function of the first kind. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

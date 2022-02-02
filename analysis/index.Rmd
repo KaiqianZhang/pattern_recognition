@@ -22,4 +22,14 @@ This website is to track my reading on the book Pattern Recognition and Machine 
 
 + [2.3 The Gaussian Distribution](2_3.html)
 
-+ [2.4 Multivariate Gaussian distribution](2_4.html)
++ [2.4 The Exponential Family](2_4.html)
+
++ [2.5 Nonparametric methods](2_5.html)
+
+
+**Chapter 3: Regression** 
+
+[Note 1: write regression function on p95 when reading regression!!]
+
+[Note2: Unsurprisingly, the least squares approach to regression does not exhibit robustness, because it corresponds to maximum likelihood under a (conditional) Gaussian distribution.]
+

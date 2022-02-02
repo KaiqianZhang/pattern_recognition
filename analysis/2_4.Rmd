@@ -1,5 +1,5 @@
 ---
-title: "2.4 Multivariate Gaussian distribution"
+title: "2.4 The Exponential Family"
 output:
   html_document:
   workflowr::wflow_html:
@@ -7,22 +7,40 @@ output:
     toc: true
 ---
 
+\renewcommand{\bs}{\boldsymbol}
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Notation
-
-+ $\boldsymbol{x}\in \mathbb{R}^D, \boldsymbol{\mu} \in \mathbb{R}^D, \boldsymbol{\Sigma}\in \mathbb{R}^{D\times D}$.
-
-# Central limit theorem
-
-**Intuition**: The central limit theorem (due to Laplace) tells us that, subject to certain mild conditions, the sum of a set of random variables, which is of course itself a random variable, has a distribution that becomes increasingly Gaussian as the number of terms in the sum increases (Walker, 1969).  
-
-# Multivariate Gaussian distribution
-
-For a D-dimensional vector $\boldsymbol{x}$, the multivariate Gaussian distribution pdf has the density (a scalar!):
+The exponential family of distributions over $\boldsymbol{x}$, given parameters $\boldsymbol{\eta}$, has the following form:
 
 $$
-\mathcal{N}(\boldsymbol{x}|\boldsymbol{\mu}, \boldsymbol{\Sigma}) = \frac{1}{(2\pi)^{D/2}}\frac{1}{|\boldsymbol{\Sigma}|^{1/2}}\text{exp}\left\{ -\frac{1}{2}(\boldsymbol{x}-\boldsymbol{\mu})^T\boldsymbol{\Sigma}^{-1}(\boldsymbol{x}-\boldsymbol{\mu})\right\}.
+p(\bs{x}|\bs{\eta}) = h(\bs{x})g(\bs{\eta})\text{exp}\{\bs{\eta}^T\bs{u}(\bs{x})\},
 $$
+where $\bs{\eta}$ are called *natural parameters* of the distribution. 
+
+## Sigmoid and softmax function
+
++ **Sigmoid function**: derived from $\eta$ from Bernoulli distribution $\text{Bern}(x|\mu)$:
+
+$$
+\mu = \sigma(\eta) = \frac{1}{1+\text{exp}(-\eta)}.
+$$
+
++ **Softmax function**: derived from $\eta_k$ from multinomial distribution $\text{Multinomial}(x|\mu_1, \dots, \mu_k)$:
+
+$$
+\mu_k = \frac{\text{exp}(\eta_k)}{1+\sum_j \text{exp}(\eta_j)}.
+$$
+
+## Conjugate prior
+
+For any member of the exponential family, there exists a conjugate prior that has the form:
+
+$$
+p(\bs{\eta}|\bs{\chi}, \nu) = f(\bs{\chi}, \nu) g(\bs{\eta})^{\nu} \text{exp}\{\nu \bs{\eta}^T \bs{\chi}\} .
+$$
+
+
+

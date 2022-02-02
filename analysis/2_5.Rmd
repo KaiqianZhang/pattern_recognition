@@ -1,0 +1,40 @@
+---
+title: '2.5 Nonparametric methods'
+output:
+  html_document:
+  workflowr::wflow_html:
+    code_folding: hide
+    toc: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+There are two main nonparametric methods to density estimation: (1) kernel density estimation and (2) nearest-neighbor methods. 
+
+## Kernel density estimators
+
++ For univariate $x$, the kernel density estimator for estimating unknown density $f$ at any given point $x$ is 
+
+$$
+\hat{f}_h(x) = \frac{1}{n}\sum_{i=1}^{n} K_h(x-x_i) = \frac{1}{nh}\sum_{i=1}^{n}K(\frac{x-x_i}{h}),
+$$
+
+where $K$ is the kernel (a non-negative function) and $h>0$ is a smoothing parameter called bandwidth.
+
++ For $D$-dimensional $\boldsymbol{x}$, the kernel density estimator is 
+
+$$
+\hat{f}_h(\boldsymbol{x}) = \frac{1}{n}\sum_{i=1}^{n} K_h(\boldsymbol{x}-\boldsymbol{x}_i) = \frac{1}{nh^D}\sum_{i=1}^{n}K(\frac{\boldsymbol{x}-\boldsymbol{x}_i}{h}). 
+$$
+
++ Disadvantage of the method: (1) $h$ is fixed for all kernels. (2) require the entire training set to be stored.
+
+## Nearest-neighbour methods
+
+K-nearest neighbout method can be used for classification. Disadvantage: also require the entire training set to be stored.
+
+
+
