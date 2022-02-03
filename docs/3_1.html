@@ -11,8 +11,9 @@
 
 
 
-<title>2.4 The Exponential Family</title>
+<title>3.1 Linear Basis Function Models</title>
 
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -36,13 +37,15 @@
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
-<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
 <style type="text/css">
 div.section {
   padding-top: 12px;
 }
 </style>
+
+
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -357,7 +360,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">2.4 The Exponential Family</h1>
+<h1 class="title toc-ignore">3.1 Linear Basis Function Models</h1>
 
 </div>
 
@@ -382,7 +385,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2022-01-28
+<strong>Last updated:</strong> 2022-02-03
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
@@ -391,8 +394,8 @@ div.tocify {
 <strong>Knit directory:</strong> <code>pattern_recognition/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
 </p>
 <p>
-This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
-  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version 1.7.0). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
 </p>
 <hr>
 </div>
@@ -406,7 +409,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -473,16 +476,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomKaiqianZhangpatternrecognitiontree82ca2059926037cbcc8324a25f1d3c258623e68atargetblank82ca205a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/KaiqianZhang/pattern_recognition/tree/82ca2059926037cbcc8324a25f1d3c258623e68a" target="_blank">82ca205</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomKaiqianZhangpatternrecognitiontree8ce5603c05a0a549dfbd0db962f0d1edfeb9cf32targetblank8ce5603a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/KaiqianZhang/pattern_recognition/tree/8ce5603c05a0a549dfbd0db962f0d1edfeb9cf32" target="_blank">8ce5603</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomKaiqianZhangpatternrecognitiontree82ca2059926037cbcc8324a25f1d3c258623e68atargetblank82ca205a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomKaiqianZhangpatternrecognitiontree8ce5603c05a0a549dfbd0db962f0d1edfeb9cf32targetblank8ce5603a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/KaiqianZhang/pattern_recognition/tree/82ca2059926037cbcc8324a25f1d3c258623e68a" target="_blank">82ca205</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/KaiqianZhang/pattern_recognition/tree/8ce5603c05a0a549dfbd0db962f0d1edfeb9cf32" target="_blank">8ce5603</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -494,9 +497,10 @@ Ignored files:
     Ignored:    .Rproj.user/
     Ignored:    analysis/.Rhistory
 
+Untracked files:
+    Untracked:  analysis/3_1.Rmd
+
 Unstaged changes:
-    Modified:   analysis/2_3.Rmd
-    Modified:   analysis/2_4.Rmd
     Modified:   analysis/index.Rmd
 
 </code></pre>
@@ -510,98 +514,53 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
-
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/2_4.Rmd</code>) and HTML (<code>docs/2_4.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
 </p>
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-File
-</th>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-<th>
-Message
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/KaiqianZhang/pattern_recognition/blob/2ead824121c2812395e1d42011d4f8773ddd17d1/analysis/2_4.Rmd" target="_blank">2ead824</a>
-</td>
-<td>
-KaiqianZhang
-</td>
-<td>
-2022-01-13
-</td>
-<td>
-add chapter 2_3
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/KaiqianZhang/pattern_recognition/2ead824121c2812395e1d42011d4f8773ddd17d1/docs/2_4.html" target="_blank">2ead824</a>
-</td>
-<td>
-KaiqianZhang
-</td>
-<td>
-2022-01-13
-</td>
-<td>
-add chapter 2_3
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <hr>
 </div>
 </div>
 </div>
-
-<p>The exponential family of distributions over <span class="math inline">\(\boldsymbol{x}\)</span>, given parameters <span class="math inline">\(\boldsymbol{\eta}\)</span>, has the following form:</p>
-<p><span class="math display">\[
-p(\boldsymbol{x}|\boldsymbol{\eta}) = h(\boldsymbol{x})g(\boldsymbol{\eta})\text{exp}\{\boldsymbol{\eta}^T\boldsymbol{u}(\boldsymbol{x})\},
-\]</span> where <span class="math inline">\(\boldsymbol{\eta}\)</span> are called <em>natural parameters</em> of the distribution.</p>
-<div id="sigmoid-and-softmax-function" class="section level2">
-<h2>Sigmoid and softmax function</h2>
 <ul>
-<li><strong>Sigmoid function</strong>: derived from <span class="math inline">\(\eta\)</span> from Bernoulli distribution <span class="math inline">\(\text{Bern}(x|\mu)\)</span>:</li>
+<li>linear regression model:</li>
 </ul>
 <p><span class="math display">\[
-\mu = \sigma(\eta) = \frac{1}{1+\text{exp}(-\eta)}.
+y(\boldsymbol{x}, \boldsymbol{w}) = w_0 + w_1x_1 + \dots + w_Dx_D.
 \]</span></p>
 <ul>
-<li><strong>Softmax function</strong>: derived from <span class="math inline">\(\eta_k\)</span> from multinomial distribution <span class="math inline">\(\text{Multinomial}(x|\mu_1, \dots, \mu_k)\)</span>:</li>
+<li>linear basis function model:</li>
 </ul>
 <p><span class="math display">\[
-\mu_k = \frac{\text{exp}(\eta_k)}{1+\sum_j \text{exp}(\eta_j)}.
+y(\boldsymbol{x}, \boldsymbol{w}) = w_0 + \sum_{j=1}^{M-1}w_j \phi_j(\boldsymbol{x}) = \boldsymbol{w}^T \boldsymbol{\phi}(\boldsymbol{x}).
 \]</span></p>
+<div id="sequential-learning" class="section level2">
+<h2>Sequential learning</h2>
+<p>One sequential learning technique is called <em>stochastic gradient descent</em>. After observing <span class="math inline">\(n\)</span> data points, the stochastic gradient descent algorithm updates the parameter <span class="math inline">\(\boldsymbol{w}\)</span> using</p>
+<p><span class="math display">\[
+\boldsymbol{w}^{(\tau+1)} = \boldsymbol{w}^{(\tau)} - \eta\nabla E_n,
+\]</span></p>
+<p>where <span class="math inline">\(\tau\)</span> is the iteration number, <span class="math inline">\(\eta\)</span> is a learning rate parameter, and <span class="math inline">\(E_n\)</span> is the error function for the <span class="math inline">\(n\)</span>th data point.</p>
 </div>
-<div id="conjugate-prior" class="section level2">
-<h2>Conjugate prior</h2>
-<p>For any member of the exponential family, there exists a conjugate prior that has the form:</p>
+<div id="regularized-least-squares" class="section level2">
+<h2>Regularized least squares</h2>
+<ul>
+<li>General form of the total error function with regularization:</li>
+</ul>
 <p><span class="math display">\[
-p(\boldsymbol{\eta}|\boldsymbol{\chi}, \nu) = f(\boldsymbol{\chi}, \nu) g(\boldsymbol{\eta})^{\nu} \text{exp}\{\nu \boldsymbol{\eta}^T \boldsymbol{\chi}\} .
+E_D(\boldsymbol{w}) + \lambda E_W(\boldsymbol{w}).
+\]</span></p>
+<ul>
+<li>General mean squared total error function with regularization:</li>
+</ul>
+<p><span class="math display">\[
+\frac{1}{2} \sum_{n=1}^{N}\{t_n - \boldsymbol{w}^T\boldsymbol{\phi}(\boldsymbol{x}_n)\}^2 + \frac{\lambda}{2}\sum_{j=1}^{M}|w_j|^q.
+\]</span></p>
+<ul>
+<li><p>When <span class="math inline">\(q=1\)</span>, it becomes lasso. It has the property that if <span class="math inline">\(\lambda\)</span> is sufficiently large, some of the coefficients <span class="math inline">\(w_j\)</span> are driven to zero, leading to a <em>sparse</em> model in which the corresponding basis functions play no role.</p></li>
+<li><p>When <span class="math inline">\(q=2\)</span>, the quadratic regularizer has the following solution:</p></li>
+</ul>
+<p><span class="math display">\[
+\hat{\boldsymbol{w}} = (\lambda \boldsymbol{I} + \boldsymbol{\phi}^T\boldsymbol{\phi})^{-1}\boldsymbol{\phi}^T \boldsymbol{t}.
 \]</span></p>
 <br>
 <p>
@@ -611,13 +570,13 @@ p(\boldsymbol{\eta}|\boldsymbol{\chi}, \nu) = f(\boldsymbol{\chi}, \nu) g(\bolds
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 4.0.2 (2020-06-22)
+<pre><code>R version 4.1.1 (2021-08-10)
 Platform: x86_64-apple-darwin17.0 (64-bit)
-Running under: macOS Catalina 10.15.7
+Running under: macOS Big Sur 10.16
 
 Matrix products: default
-BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
-LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
+BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib
 
 locale:
 [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
@@ -626,22 +585,22 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.7       whisker_0.4      knitr_1.36       magrittr_2.0.1  
- [5] workflowr_1.6.2  R6_2.5.1         rlang_0.4.12     fastmap_1.1.0   
- [9] fansi_0.5.0      stringr_1.4.0    tools_4.0.2      xfun_0.28       
-[13] utf8_1.2.2       git2r_0.28.0     jquerylib_0.1.4  htmltools_0.5.2 
-[17] ellipsis_0.3.2   rprojroot_2.0.2  yaml_2.2.1       digest_0.6.28   
-[21] tibble_3.1.5     lifecycle_1.0.1  crayon_1.4.2     later_1.3.0     
-[25] vctrs_0.3.8      promises_1.2.0.1 fs_1.5.0         glue_1.4.2      
-[29] evaluate_0.14    rmarkdown_2.11   stringi_1.7.5    compiler_4.0.2  
-[33] pillar_1.6.4     httpuv_1.6.3     pkgconfig_2.0.3 </code></pre>
+ [1] Rcpp_1.0.7       knitr_1.36       magrittr_2.0.1   workflowr_1.7.0 
+ [5] R6_2.5.1         rlang_0.4.12     fastmap_1.1.0    fansi_0.5.0     
+ [9] stringr_1.4.0    tools_4.1.1      xfun_0.28        utf8_1.2.2      
+[13] git2r_0.28.0     jquerylib_0.1.4  htmltools_0.5.2  ellipsis_0.3.2  
+[17] rprojroot_2.0.2  yaml_2.2.1       digest_0.6.29    tibble_3.1.6    
+[21] lifecycle_1.0.1  crayon_1.4.2     later_1.3.0      vctrs_0.3.8     
+[25] promises_1.2.0.1 fs_1.5.0         glue_1.5.1       evaluate_0.14   
+[29] rmarkdown_2.11   stringi_1.7.6    compiler_4.1.1   pillar_1.6.4    
+[33] httpuv_1.6.3     pkgconfig_2.0.3 </code></pre>
 </div>
 </div>
 
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
 TeX fonts only; see
-http://docs.mathjax.org/en/latest/configuration.html.  This will make
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
 the presentation more consistent at the cost of the webpage sometimes
 taking slightly longer to load. Note that this only works because the
 footer is added to webpages before the MathJax javascript. -->
@@ -650,6 +609,8 @@ footer is added to webpages before the MathJax javascript. -->
     "HTML-CSS": { availableFonts: ["TeX"] }
   });
 </script>
+
+
 
 
 </div>

@@ -27,7 +27,9 @@ This website is to track my reading on the book Pattern Recognition and Machine 
 + [2.5 Nonparametric methods](2_5.html)
 
 
-**Chapter 3: Regression** 
+**Chapter 3: Linear Models for Regression**
+
++ [3.1 Linear Basis Function Models](3_1.html)
 
 [Note 1: write regression function on p95 when reading regression!!]
 

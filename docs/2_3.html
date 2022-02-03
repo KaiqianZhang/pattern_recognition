@@ -13,7 +13,6 @@
 
 <title>2.3 The Gaussian Distribution</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -44,8 +43,6 @@ div.section {
   padding-top: 12px;
 }
 </style>
-
-
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -385,7 +382,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2022-01-14
+<strong>Last updated:</strong> 2022-01-28
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
@@ -476,16 +473,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomKaiqianZhangpatternrecognitiontree2ead824121c2812395e1d42011d4f8773ddd17d1targetblank2ead824a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/KaiqianZhang/pattern_recognition/tree/2ead824121c2812395e1d42011d4f8773ddd17d1" target="_blank">2ead824</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomKaiqianZhangpatternrecognitiontree82ca2059926037cbcc8324a25f1d3c258623e68atargetblank82ca205a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/KaiqianZhang/pattern_recognition/tree/82ca2059926037cbcc8324a25f1d3c258623e68a" target="_blank">82ca205</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomKaiqianZhangpatternrecognitiontree2ead824121c2812395e1d42011d4f8773ddd17d1targetblank2ead824a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomKaiqianZhangpatternrecognitiontree82ca2059926037cbcc8324a25f1d3c258623e68atargetblank82ca205a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/KaiqianZhang/pattern_recognition/tree/2ead824121c2812395e1d42011d4f8773ddd17d1" target="_blank">2ead824</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/KaiqianZhang/pattern_recognition/tree/82ca2059926037cbcc8324a25f1d3c258623e68a" target="_blank">82ca205</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -495,9 +492,11 @@ Ignored files:
     Ignored:    .DS_Store
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+    Ignored:    analysis/.Rhistory
 
 Unstaged changes:
     Modified:   analysis/2_3.Rmd
+    Modified:   analysis/index.Rmd
 
 </code></pre>
 <p>
@@ -541,6 +540,40 @@ Message
 Rmd
 </td>
 <td>
+<a href="https://github.com/KaiqianZhang/pattern_recognition/blob/82ca2059926037cbcc8324a25f1d3c258623e68a/analysis/2_3.Rmd" target="_blank">82ca205</a>
+</td>
+<td>
+Kaiqian Zhang
+</td>
+<td>
+2022-01-14
+</td>
+<td>
+add conditional Gaussian dist notes
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/KaiqianZhang/pattern_recognition/82ca2059926037cbcc8324a25f1d3c258623e68a/docs/2_3.html" target="_blank">82ca205</a>
+</td>
+<td>
+Kaiqian Zhang
+</td>
+<td>
+2022-01-14
+</td>
+<td>
+add conditional Gaussian dist notes
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
 <a href="https://github.com/KaiqianZhang/pattern_recognition/blob/2ead824121c2812395e1d42011d4f8773ddd17d1/analysis/2_3.Rmd" target="_blank">2ead824</a>
 </td>
 <td>
@@ -577,6 +610,7 @@ add chapter 2_3
 </div>
 </div>
 </div>
+
 <div id="gaussian-distribution-pdf" class="section level2">
 <h2>Gaussian distribution pdf</h2>
 <p><strong>To remember</strong>:</p>
@@ -595,6 +629,12 @@ add chapter 2_3
 <p>And</p>
 <p><span class="math display">\[
 \frac{1}{(2\pi)^{D/2}}\frac{1}{|\boldsymbol{\Sigma}|^{1/2}} \int \text{exp}\left\{ -\frac{1}{2}(\boldsymbol{x}-\boldsymbol{\mu})^T\boldsymbol{\Sigma}^{-1}(\boldsymbol{x}-\boldsymbol{\mu})\right\} d \boldsymbol{x} = 1.
+\]</span></p>
+<ul>
+<li>Log-likelihood:</li>
+</ul>
+<p><span class="math display">\[
+\text{ln}p(\boldsymbol{X|\mu, \Sigma}) = -\frac{ND}{2}\text{ln}(2\pi) - \frac{N}{2}\text{ln}|\boldsymbol{\Sigma}| - \frac{1}{2}\sum_{n=1}^{N}(\boldsymbol{x}_n - \boldsymbol{\mu})^T\boldsymbol{\Sigma}(\boldsymbol{x}_n - \boldsymbol{\mu}).
 \]</span></p>
 </div>
 <div id="gaussian-distribution-properties" class="section level2">
@@ -622,6 +662,10 @@ add chapter 2_3
 \boldsymbol{\Sigma}^{-1} &amp;= \sum_{i=1}^{D} \lambda_i^{-1} \boldsymbol{u}_i \boldsymbol{u}_i^T \\
 |\boldsymbol{\Sigma}| &amp;= \prod_{i=1}^{D} \lambda_i
 \end{align}\]</span></p>
+</div>
+<div id="central-limit-theorem" class="section level2">
+<h2>Central limit theorem</h2>
+<p><strong>Intuition</strong>: The central limit theorem (due to Laplace) tells us that, subject to certain mild conditions, the sum of a set of random variables, which is of course itself a random variable, has a distribution that becomes increasingly Gaussian as the number of terms in the sum increases (Walker, 1969).</p>
 </div>
 <div id="projection-with-eigenvectors" class="section level2">
 <h2>Projection with eigenvectors</h2>
@@ -651,6 +695,41 @@ p(\boldsymbol{y}) = p(\boldsymbol{x}) |\boldsymbol{J}| = \prod_{i=1}^{D} \frac{1
 -\frac{1}{2}(\boldsymbol{x}-\boldsymbol{\mu})^T\boldsymbol{\Sigma}^{-1}(\boldsymbol{x}-\boldsymbol{\mu}) = -\frac{1}{2}\boldsymbol{x}^T\boldsymbol{\Sigma}^{-1}\boldsymbol{x} + \boldsymbol{x}^T\boldsymbol{\Sigma}^{-1}\boldsymbol{\mu} + \text{const}
 \]</span></p>
 <p>, which is a quadratic form of <span class="math inline">\(\boldsymbol{x}\)</span>.</p>
+</div>
+<div id="sequentialon-line-estimation" class="section level2">
+<h2>Sequential/on-line estimation</h2>
+<p>Sequential methods allow data points to be processed one at a time and then discarded and are important for on-line applications, and also where large data sets are involved so that batch processing of all data points at once is infeasible.</p>
+<p>For example, the on-line estimation for Gaussian mean. Denote <span class="math inline">\(\boldsymbol{\mu}_{ML}^{(N)}\)</span> when the maximum likelihood estimator of <span class="math inline">\(\boldsymbol{\mu}_{ML}\)</span> is based on <span class="math inline">\(N\)</span> observations. Then (eqn 2.126)</p>
+<p><span class="math display">\[
+\boldsymbol{\mu}_{ML}^{(N)} = \boldsymbol{\mu}_{ML}^{(N-1)} + \frac{1}{N}(\boldsymbol{x}_N - \boldsymbol{\mu}_{ML}^{(N-1)}). 
+\]</span></p>
+<p>Here is a general algorithm for sequential learning, called <em>Robbins-Monro algorithm</em>:</p>
+<p><span class="math display">\[
+\theta^{(N)} = \theta^{(N-1)} + a_{N-1} \cdot z(\theta^{(N-1)}),
+\]</span> where <span class="math inline">\(z(\theta^{(N)})\)</span> is an observed <span class="math inline">\(z\)</span> value when <span class="math inline">\(\theta\)</span> takes the value of <span class="math inline">\(\theta^{(N)}\)</span> and coefficients <span class="math inline">\(\{a_N\}\)</span> represent a sequence of positive numbers that satisfy the following three conditions:</p>
+<ul>
+<li><p><span class="math inline">\(\lim_{N\to \infty} a_N = 0\)</span>; (The successive corrections decrease in magnitude so that the process can converge to a limiting value.)</p></li>
+<li><p><span class="math inline">\(\sum_{N=1}^{\infty} a_N = \infty\)</span>; (This is required to ensure that the algorithm does not converge short of the root.)</p></li>
+<li><p><span class="math inline">\(\sum_{N=1}^{\infty} a_N^2 &lt; \infty\)</span>. (This ensures that the accumulated noise has finite variance and hence does not spoil convergence.)</p></li>
+</ul>
+</div>
+<div id="students-t-distribution" class="section level2">
+<h2>Student’s t-distribution</h2>
+<p>Student’s t-distribution <span class="math inline">\(\text{St}(x|\mu, \lambda, \nu)\)</span>:</p>
+<ul>
+<li><p>When degrees of freedom <span class="math inline">\(\nu=1\)</span>, it becomes Cauchy distribution.</p></li>
+<li><p>When degrees of freedom <span class="math inline">\(\nu \to \infty\)</span>, it becomes Gaussian distribution.</p></li>
+<li><p>An infinite mixture of Gaussians: it is obtained by adding up aninfinite number of Gaussian distributions having the same mean but different precisions.</p></li>
+<li><p>It is heavy-tailed (i.e. longer tails than Gaussian) and thus robust to outliers.</p></li>
+</ul>
+</div>
+<div id="von-mises-distribution" class="section level2">
+<h2><em>von Mises</em> distribution</h2>
+<p><em>von Mises</em> or <em>circular normal</em> distribution is a periodic generalization of the Gaussians.</p>
+<p><span class="math display">\[
+p(\theta | \theta_0, m) = \frac{1}{2\pi I_0(m)} \text{exp}\{m\cdot\text{cos}(\theta-\theta_0)\},
+\]</span></p>
+<p>where Here the parameter <span class="math inline">\(\theta_0\)</span> corresponds to the mean of the distribution, while <span class="math inline">\(m\)</span>, which is known as the concentration parameter, is analogous to the inverse variance (precision) for the Gaussian. The normalization coefficient <span class="math inline">\(I_0(m)\)</span> is the zeroth-order Bessel function of the first kind.</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -659,13 +738,13 @@ p(\boldsymbol{y}) = p(\boldsymbol{x}) |\boldsymbol{J}| = \prod_{i=1}^{D} \frac{1
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 4.1.1 (2021-08-10)
+<pre><code>R version 4.0.2 (2020-06-22)
 Platform: x86_64-apple-darwin17.0 (64-bit)
-Running under: macOS Big Sur 10.16
+Running under: macOS Catalina 10.15.7
 
 Matrix products: default
-BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib
-LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib
+BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
 
 locale:
 [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
@@ -676,12 +755,12 @@ attached base packages:
 loaded via a namespace (and not attached):
  [1] Rcpp_1.0.7       whisker_0.4      knitr_1.36       magrittr_2.0.1  
  [5] workflowr_1.6.2  R6_2.5.1         rlang_0.4.12     fastmap_1.1.0   
- [9] fansi_0.5.0      stringr_1.4.0    tools_4.1.1      xfun_0.28       
+ [9] fansi_0.5.0      stringr_1.4.0    tools_4.0.2      xfun_0.28       
 [13] utf8_1.2.2       git2r_0.28.0     jquerylib_0.1.4  htmltools_0.5.2 
-[17] ellipsis_0.3.2   rprojroot_2.0.2  yaml_2.2.1       digest_0.6.29   
-[21] tibble_3.1.6     lifecycle_1.0.1  crayon_1.4.2     later_1.3.0     
-[25] vctrs_0.3.8      promises_1.2.0.1 fs_1.5.0         glue_1.5.1      
-[29] evaluate_0.14    rmarkdown_2.11   stringi_1.7.6    compiler_4.1.1  
+[17] ellipsis_0.3.2   rprojroot_2.0.2  yaml_2.2.1       digest_0.6.28   
+[21] tibble_3.1.5     lifecycle_1.0.1  crayon_1.4.2     later_1.3.0     
+[25] vctrs_0.3.8      promises_1.2.0.1 fs_1.5.0         glue_1.4.2      
+[29] evaluate_0.14    rmarkdown_2.11   stringi_1.7.5    compiler_4.0.2  
 [33] pillar_1.6.4     httpuv_1.6.3     pkgconfig_2.0.3 </code></pre>
 </div>
 </div>
@@ -698,8 +777,6 @@ footer is added to webpages before the MathJax javascript. -->
     "HTML-CSS": { availableFonts: ["TeX"] }
   });
 </script>
-
-
 
 
 </div>

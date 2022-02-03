@@ -1,0 +1,60 @@
+---
+title: "3.1 Linear Basis Function Models"
+output:
+  html_document:
+  workflowr::wflow_html:
+    code_folding: hide
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
++ linear regression model:
+
+$$
+y(\boldsymbol{x}, \boldsymbol{w}) = w_0 + w_1x_1 + \dots + w_Dx_D.
+$$
+
+
++ linear basis function model:
+
+$$
+y(\boldsymbol{x}, \boldsymbol{w}) = w_0 + \sum_{j=1}^{M-1}w_j \phi_j(\boldsymbol{x}) = \boldsymbol{w}^T \boldsymbol{\phi}(\boldsymbol{x}).
+$$
+
+## Sequential learning
+
+One sequential learning technique is called *stochastic gradient descent*. After observing $n$ data points, the stochastic gradient descent algorithm updates the parameter $\boldsymbol{w}$ using 
+
+$$
+\boldsymbol{w}^{(\tau+1)} = \boldsymbol{w}^{(\tau)} - \eta\nabla E_n,
+$$
+
+where $\tau$ is the iteration number, $\eta$ is a learning rate parameter, and $E_n$ is the error function for the $n$th data point.
+
+## Regularized least squares
+
++ General form of the total error function with regularization:
+
+$$
+E_D(\boldsymbol{w}) + \lambda E_W(\boldsymbol{w}).
+$$
+
++ General mean squared total error function with regularization:
+
+$$
+\frac{1}{2} \sum_{n=1}^{N}\{t_n - \boldsymbol{w}^T\boldsymbol{\phi}(\boldsymbol{x}_n)\}^2 + \frac{\lambda}{2}\sum_{j=1}^{M}|w_j|^q.
+$$
+
++ When $q=1$, it becomes lasso. It has the property that if $\lambda$ is sufficiently large, some of the coefficients $w_j$ are driven to zero, leading to a *sparse* model in which the corresponding basis functions play no role. 
+
++ When $q=2$, the quadratic regularizer has the following solution:
+
+$$
+\hat{\boldsymbol{w}} = (\lambda \boldsymbol{I} + \boldsymbol{\phi}^T\boldsymbol{\phi})^{-1}\boldsymbol{\phi}^T \boldsymbol{t}.
+$$
+
+
+
