@@ -31,6 +31,8 @@ This website is to track my reading on the book Pattern Recognition and Machine 
 
 + [3.1 Linear Basis Function Models](3_1.html)
 
++ [3.3 Bayesian Linear Regression](3_3.html)
+
 [Note 1: write regression function on p95 when reading regression!!]
 
 [Note2: Unsurprisingly, the least squares approach to regression does not exhibit robustness, because it corresponds to maximum likelihood under a (conditional) Gaussian distribution.]
