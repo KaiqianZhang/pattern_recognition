@@ -1,0 +1,26 @@
+---
+title: "3.4 Bayesian Model Comparison"
+output:
+  html_document:
+  workflowr::wflow_html:
+    code_folding: hide
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The Bayesian view of model comparison simply involves the use of probabilities to represent uncertainty in the choice of model. 
+
+Given a training set $D$ and a model $M_i$, we wish to evaluate the posterior distribution
+
+$$
+p(M_i | D) \propto p(M_i)p(D|M_i).
+$$
+
++ **model evidence/marginal likelihood**: $p(D|M_i)$.
+
++ **Bayes factor**: $K = \frac{p(D|M_i)}{p(D|M_j)}$, $K>1$ data favors model $i$. 
+
+In practice, always keep aside an independent test set to compare overall performance of the final system. 

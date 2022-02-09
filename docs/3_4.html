@@ -11,7 +11,7 @@
 
 
 
-<title>Home</title>
+<title>3.4 Bayesian Model Comparison</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -29,7 +29,11 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
@@ -225,7 +229,73 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
 
 
 
@@ -235,6 +305,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -270,9 +350,17 @@ $(document).ready(function () {
 
 <div id="header">
 
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
 
 
-<h1 class="title toc-ignore">Home</h1>
+
+<h1 class="title toc-ignore">3.4 Bayesian Model Comparison</h1>
 
 </div>
 
@@ -300,7 +388,7 @@ $(document).ready(function () {
 <strong>Last updated:</strong> 2022-02-09
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 1 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>pattern_recognition/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -321,7 +409,67 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 </div>
 <div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20211115code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20211115)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20211115code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20211115)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
 </div>
 </div>
 </div>
@@ -349,6 +497,9 @@ Ignored files:
     Ignored:    .Rproj.user/
     Ignored:    analysis/.Rhistory
 
+Untracked files:
+    Untracked:  analysis/3_4.Rmd
+
 Unstaged changes:
     Modified:   analysis/index.Rmd
 
@@ -363,281 +514,56 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
-
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/index.Rmd</code>) and HTML (<code>docs/index.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
 </p>
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-File
-</th>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-<th>
-Message
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/KaiqianZhang/pattern_recognition/blob/2ea1032abc3cd8c8059aea4a5c87c8d54cb7e8fa/analysis/index.Rmd" target="_blank">2ea1032</a>
-</td>
-<td>
-Kaiqian Zhang
-</td>
-<td>
-2022-02-07
-</td>
-<td>
-add 3.2
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/KaiqianZhang/pattern_recognition/2ea1032abc3cd8c8059aea4a5c87c8d54cb7e8fa/docs/index.html" target="_blank">2ea1032</a>
-</td>
-<td>
-Kaiqian Zhang
-</td>
-<td>
-2022-02-07
-</td>
-<td>
-add 3.2
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/KaiqianZhang/pattern_recognition/blob/cdbdc58a9408d260c118dcbaf044b4c17b3440b8/analysis/index.Rmd" target="_blank">cdbdc58</a>
-</td>
-<td>
-Kaiqian Zhang
-</td>
-<td>
-2022-02-03
-</td>
-<td>
-add reading notes on 3_1
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/KaiqianZhang/pattern_recognition/cdbdc58a9408d260c118dcbaf044b4c17b3440b8/docs/index.html" target="_blank">cdbdc58</a>
-</td>
-<td>
-Kaiqian Zhang
-</td>
-<td>
-2022-02-03
-</td>
-<td>
-add reading notes on 3_1
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/KaiqianZhang/pattern_recognition/blob/8ce5603c05a0a549dfbd0db962f0d1edfeb9cf32/analysis/index.Rmd" target="_blank">8ce5603</a>
-</td>
-<td>
-Kaiqian Zhang
-</td>
-<td>
-2022-02-02
-</td>
-<td>
-add recent reading notes
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/KaiqianZhang/pattern_recognition/82ca2059926037cbcc8324a25f1d3c258623e68a/docs/index.html" target="_blank">82ca205</a>
-</td>
-<td>
-Kaiqian Zhang
-</td>
-<td>
-2022-01-14
-</td>
-<td>
-add conditional Gaussian dist notes
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/KaiqianZhang/pattern_recognition/blob/2ead824121c2812395e1d42011d4f8773ddd17d1/analysis/index.Rmd" target="_blank">2ead824</a>
-</td>
-<td>
-KaiqianZhang
-</td>
-<td>
-2022-01-13
-</td>
-<td>
-add chapter 2_3
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/KaiqianZhang/pattern_recognition/2ead824121c2812395e1d42011d4f8773ddd17d1/docs/index.html" target="_blank">2ead824</a>
-</td>
-<td>
-KaiqianZhang
-</td>
-<td>
-2022-01-13
-</td>
-<td>
-add chapter 2_3
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/KaiqianZhang/pattern_recognition/blob/47ba61e36af336f0c63d4dfef372bb4a12aa02b6/analysis/index.Rmd" target="_blank">47ba61e</a>
-</td>
-<td>
-Kaiqian Zhang
-</td>
-<td>
-2021-11-16
-</td>
-<td>
-add second day learning
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/KaiqianZhang/pattern_recognition/47ba61e36af336f0c63d4dfef372bb4a12aa02b6/docs/index.html" target="_blank">47ba61e</a>
-</td>
-<td>
-Kaiqian Zhang
-</td>
-<td>
-2021-11-16
-</td>
-<td>
-add second day learning
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/KaiqianZhang/pattern_recognition/43bd055cd8c60db25e5b4cfad8a4c38c079175f7/docs/index.html" target="_blank">43bd055</a>
-</td>
-<td>
-Kaiqian Zhang
-</td>
-<td>
-2021-11-15
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/KaiqianZhang/pattern_recognition/blob/a77584cd78b3f6a2575f63df26fe09ea9e126194/analysis/index.Rmd" target="_blank">a77584c</a>
-</td>
-<td>
-Kaiqian Zhang
-</td>
-<td>
-2021-11-15
-</td>
-<td>
-my first commit
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/KaiqianZhang/pattern_recognition/blob/20ca359be5eda2be3075de87fe765de618915377/analysis/index.Rmd" target="_blank">20ca359</a>
-</td>
-<td>
-Kaiqian Zhang
-</td>
-<td>
-2021-11-15
-</td>
-<td>
-Start workflowr project.
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <hr>
 </div>
 </div>
 </div>
-<p>This website is to track my reading on the book Pattern Recognition and Machine Learning by Christopher M. Bishop.</p>
-<p><strong>Chapter 1: Introduction</strong></p>
+<p>The Bayesian view of model comparison simply involves the use of probabilities to represent uncertainty in the choice of model.</p>
+<p>Given a training set <span class="math inline">\(D\)</span> and a model <span class="math inline">\(M_i\)</span>, we wish to evaluate the posterior distribution</p>
+<p><span class="math display">\[
+p(M_i | D) \propto p(M_i)p(D|M_i).
+\]</span></p>
 <ul>
-<li><p><a href="1_1.html">1.1 Example: Polynomial Curve Fitting</a></p></li>
-<li><p><a href="1_2.html">1.2 Probability Theory</a></p></li>
-<li><p><a href="1_6.html">1.6 Information Theory</a></p></li>
+<li><p><strong>model evidence/marginal likelihood</strong>: <span class="math inline">\(p(D|M_i)\)</span>.</p></li>
+<li><p><strong>Bayes factor</strong>: <span class="math inline">\(K = \frac{p(D|M_i)}{p(D|M_j)}\)</span>, <span class="math inline">\(K&gt;1\)</span> data favors model <span class="math inline">\(i\)</span>.</p></li>
 </ul>
-<p><strong>Chapter 2: Probability Distribution</strong></p>
-<ul>
-<li><p><a href="2_3.html">2.3 The Gaussian Distribution</a></p></li>
-<li><p><a href="2_4.html">2.4 The Exponential Family</a></p></li>
-<li><p><a href="2_5.html">2.5 Nonparametric methods</a></p></li>
-</ul>
-<p><strong>Chapter 3: Linear Models for Regression</strong></p>
-<ul>
-<li><p><a href="3_1.html">3.1 Linear Basis Function Models</a></p></li>
-<li><p><a href="3_3.html">3.3 Bayesian Linear Regression</a></p></li>
-<li><p><a href="3_4.html">3.4 Bayesian Model Comparison</a></p></li>
-</ul>
-<p>[Note 1: write regression function on p95 when reading regression!!]</p>
-<p>[Note2: Unsurprisingly, the least squares approach to regression does not exhibit robustness, because it corresponds to maximum likelihood under a (conditional) Gaussian distribution.]</p>
+<p>In practice, always keep aside an independent test set to compare overall performance of the final system.</p>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.1.1 (2021-08-10)
+Platform: x86_64-apple-darwin17.0 (64-bit)
+Running under: macOS Big Sur 10.16
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.7       knitr_1.36       magrittr_2.0.1   workflowr_1.7.0 
+ [5] R6_2.5.1         rlang_0.4.12     fastmap_1.1.0    fansi_0.5.0     
+ [9] stringr_1.4.0    tools_4.1.1      xfun_0.28        utf8_1.2.2      
+[13] git2r_0.28.0     jquerylib_0.1.4  htmltools_0.5.2  ellipsis_0.3.2  
+[17] rprojroot_2.0.2  yaml_2.2.1       digest_0.6.29    tibble_3.1.6    
+[21] lifecycle_1.0.1  crayon_1.4.2     later_1.3.0      vctrs_0.3.8     
+[25] promises_1.2.0.1 fs_1.5.0         glue_1.5.1       evaluate_0.14   
+[29] rmarkdown_2.11   stringi_1.7.6    compiler_4.1.1   pillar_1.6.4    
+[33] httpuv_1.6.3     pkgconfig_2.0.3 </code></pre>
+</div>
 
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
@@ -655,6 +581,8 @@ footer is added to webpages before the MathJax javascript. -->
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -686,7 +614,41 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
