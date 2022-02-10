@@ -1,0 +1,24 @@
+---
+title: "3.5 The Evidence Approximation (Naive Bayes)"
+output:
+  html_document:
+  workflowr::wflow_html:
+    code_folding: hide
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Naive Bayes**: 
+
++ Set hyerparameters to specific values.
+
++ These specific values are determined by (1) consider marginal likelihood that integrating over the parameters $\boldsymbol{w}$; (2) maximalize this marginal likelihood (evidence function). 
+
++ Note this has assumption that the prior is flat. Thinking about the Bayes' Theorem: when the prior is flat, the posterior distribution of hyperparameter is determined by the marginal likelihood of hyperparameters and the maximum likelihood estimates are good candidates. 
+
+## 3.5.2 Maximizing the evidence function
+
+We usually have a implicit solution to hyperparameter. This means that the right part of the equation also involves the hyperparameter itself. This can be solved by choosing an initial value for the hyperparameter and then using this to compute values on the right and then re-estimate the hyperparameter, repeating until convergence. 
