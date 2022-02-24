@@ -1,0 +1,33 @@
+---
+title: "4.2 Probabilistic Generative Models"
+output:
+  html_document:
+  workflowr::wflow_html:
+    code_folding: hide
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Logistic sigmoid function**: Sigmoid means S-shaped. a.k.a. squashing function because sigmoid function maps the whole real axis into a finite interval. 
+
+$$
+\sigma(a) = \frac{1}{1+\text{exp}(-a)}.
+$$
+Properties of logistic sigmoid function:
+
++ This function is observed as the posterior probability for class $\mathcal{C}_1$: $p(\mathcal{C}_1|\boldsymbol{x})$.
+
++ Symmetry property: $\sigma(-a) = 1 - \sigma(a)$.
+
++ Inverse: $a = \text{ln}(\frac{\sigma}{1-\sigma})$, which is known as *logit* function.
+
+**Normalized exponential function**: a.k.a. *softmax function*. For $K>2$ classes, the posterior probability is 
+
+$$
+p(\mathcal{C}_k|\boldsymbol{x}) = \frac{\text{exp}(a_k)}{\sum_j \text{exp}(a_j)}.
+$$
+
+

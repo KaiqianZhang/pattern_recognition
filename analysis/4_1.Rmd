@@ -1,0 +1,130 @@
+---
+title: "4.1 Discriminant Functions"
+output:
+  html_document:
+  workflowr::wflow_html:
+    code_folding: hide
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## 4.1.1 Two classes
+
+
+## 4.1.3 Least squares for classification
+
+
+## 4.1.4 Fisher's linear discriminant
+
+One way to view a linear classification model is in terms of dimensionality reduction. We want to take the $D$ dimensional input $\boldsymbol{x}$ and use $\boldsymbol{w}$ to project it down to one dimensional space such that 
+
+$$
+y = \boldsymbol{w}^T \boldsymbol{x}.
+$$
+
+**Fisher's idea**: He wants to maximize a function that will give a large separation between the projected class means while also giving a small variance (of projected $y$) within each class, thereby minimizing the class overlap. Here is Fisher's criterion:
+
+$$
+J(\boldsymbol{w}) = \frac{\boldsymbol{w}^T\boldsymbol{S}_B \boldsymbol{w}}{\boldsymbol{w}^T\boldsymbol{S}_W \boldsymbol{w}},
+$$
+where $\boldsymbol{S}_B$ is the between-class covariance matrix such that 
+
+$$
+\boldsymbol{S}_B = (\boldsymbol{m}_2 - \boldsymbol{m}_1)(\boldsymbol{m}_2 - \boldsymbol{m}_1)^T
+$$
+and $\boldsymbol{S}_W$ is the total within-class covariance matrix, given by
+
+$$
+\boldsymbol{S}_W = \sum_{n\in C_1}(\boldsymbol{x}_n - \boldsymbol{m}_1)(\boldsymbol{x}_n - \boldsymbol{m}_1)^T + 
+\sum_{n\in C_2}(\boldsymbol{x}_n - \boldsymbol{m}_2)(\boldsymbol{x}_n - \boldsymbol{m}_2)^T.
+$$ 
+Differentiating with respect to $\boldsymbol{w}$ and we obtain **Fisher's linear discriminant**:
+
+$$
+\boldsymbol{w} \propto \boldsymbol{S}_W^{-1}(\boldsymbol{m}_2 - \boldsymbol{m}_1).
+$$
+**Next step**: The projected data can subsequently be used to construct a discriminant, by choosing a threshold $y_0$ so that we can classify a new point as belonging to $C_1$ if $y(\boldsymbol{x}) \geq y_0$ and classify it to $C_2$ otherwise (Two classes scenario). To find the optimal threshold $y_0$, we can model the class-conditional densities $p(y|C_k)$ using Gaussian distributions and maximum likelihood method. **Some justification for the Gaussian assumption comes from the central limit theorem by noting that $y = \boldsymbol{w}^T \boldsymbol{x}$ is the sum of a set of random variables.**
+
+## 4.1.6 Fisher's discriminant for multiple classes
+
+Suppose there are $K>2$ classes. Here, we only talk about how to use Fisher's criterion to find $\boldsymbol{W}$. This $\boldsymbol{W}$ transforms high-dimensional ($D$-dimensional) input $\boldsymbol{x}$ onto a lower-dimensional ($D'$-dimensional) feature space such that 
+
+$$
+\boldsymbol{y} = \boldsymbol{W}^T \boldsymbol{x}.
+$$
+
+Then we have 
+
+$$
+\boldsymbol{s}_W = \sum_{k=1}^{K} \sum_{n\in C_k} (\boldsymbol{y}_n - \boldsymbol{\mu}_k)(\boldsymbol{y}_n - \boldsymbol{\mu}_k)^T
+$$
+
+and 
+
+$$
+\boldsymbol{s}_B = \sum_{k=1}^K N_k (\boldsymbol{\mu}_k - \boldsymbol{\mu})(\boldsymbol{\mu}_k - \boldsymbol{\mu})^T,
+$$
+
+where 
+
+$$
+\boldsymbol{\mu}_k = \frac{1}{N_k} \sum_{n\in C_k} \boldsymbol{y}_n
+$$
+
+and 
+
+$$
+\boldsymbol{\mu} = \frac{1}{N} \sum_{k=1}^K N_k \boldsymbol{\mu}_k.
+$$
+
+Again Fisher's idea is to make between-class covariance large and within-class covariance small. One criterion can be made such that 
+
+$$
+J(\boldsymbol{W}) = \text{Tr}(\boldsymbol{s}_W^{-1}\boldsymbol{s}_B).
+$$
+*But after getting this $\boldsymbol{W}$, the book does not talk about how to perform classification using features?*
+
+## 4.1.7 The perceptron algorithm
+
+**Steps for perceptron algorithm**:
+
++ Transform input $\boldsymbol{x}$ to a feature vector $\boldsymbol{\phi}(\boldsymbol{x})$ using a fixed nonlinear transformation;
+
++ Construct a generalized linear model such that 
+
+$$
+y(\boldsymbol{x}) = f(\boldsymbol{w}^T \boldsymbol{\phi}(\boldsymbol{x})),
+$$
+where the nonlinear activation function $f(.)$ is $+1$ when the input $\geq 0$ and $-1$ otherwise;
+
++ Classify to $C_1$ if the target value is $+1$, and $C_2$ if the target value is $-1$. We may want to code target values $\in \{+1, -1\}$.
+
+**Perceptron criterion**: We want to minimize the missclassification rate such that we minimize
+
+$$
+E_P(\boldsymbol{w}) = - \sum_{n\in \mathcal{M}} \boldsymbol{w}^T \boldsymbol{\phi}_n t_n
+$$
+where $\boldsymbol{\phi}_n = \boldsymbol{\phi}(\boldsymbol{x}_n)$ and $\mathcal{M}$ denotes the set of all misclassified patterns. 
+
+**Reasoning for perceptron criterion**: We are seeking a weight vector $\boldsymbol{w}$ such that patterns $\boldsymbol{x}_n$ in $C_1$ will have $\boldsymbol{w}^T \boldsymbol{\phi}(\boldsymbol{x}_n) > 0$, whereas patterns $\boldsymbol{x}_n$ in $C_2$ have $\boldsymbol{w}^T \boldsymbol{\phi}(\boldsymbol{x}_n) < 0$, Using $t\in \{-1, +1\}$, we would like all patterns to satisfy $\boldsymbol{w}^T \boldsymbol{\phi}(\boldsymbol{x}_n)t_n  > 0$. Thus for a misclassified pattern $\boldsymbol{x}_n$, it tries to minimize the quantity $-\boldsymbol{w}^T \boldsymbol{\phi}_n t_n$. 
+
+**Stochastic gradient descent algorithm to the error function**: The change in the weight vector $\boldsymbol{w}$ is then given by
+
+$$
+\boldsymbol{w}^{(\tau+1)} = \boldsymbol{w}^{(\tau)} - \eta\nabla E_P(\boldsymbol{w}) = \boldsymbol{w}^{(\tau)} + \eta \boldsymbol{\phi}_n t_n
+$$
+where $\eta$ is the learning rate parameter and $\tau$ is an integer that indexes the steps of the algorithm.
+
+**Convergence**: The *perceptron convergence theorem* states that if there exists an exact solution (i.e., if the training data set is linearly separable), then the perceptron learning algorithm is guaranteed to find an exact solution in a finite number of steps, otherwise this algorithm will never converge.
+
+**Limitations**: 
+
++ Does not provide probabilistic outputs.
+
++ Cannot generalize to $K>2$ classes.
+
++ Based on linear combination of fixed basis functions. 
