@@ -48,6 +48,10 @@ This website is to track my reading on the book Pattern Recognition and Machine 
 
 + [4.2 Probabilistic Generative Models](4_2.html)
 
++ [4.3 Probabilistic Discriminative Models](4_3.html)
+
++ [4.4 The Laplace Approximation](4_4.html)
+
 
 
 

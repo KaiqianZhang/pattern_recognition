@@ -1,0 +1,77 @@
+---
+title: "4.4 The Laplace Approximation"
+output:
+  html_document:
+  workflowr::wflow_html:
+    code_folding: hide
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Method**: Use a Gaussian distribution to approximate a distribution (usually a posterior distribution in Bayesian). The mean of the Gaussian distribution is usually the mode (/local maximum) of the target distribution. 
+
+**Steps and derivations**: Given the distribution $p(z)$ is defined as:
+
+$$
+p(z) = \frac{1}{Z}f(z),
+$$
+
+where $Z = \int f(z) dz$ is the normalization coefficient. We want to find the Laplace approximation to $p(z)$. i.e., find a Gaussian distribution that can approximate $p(z)$. 
+
++ Step 1: find the mode $z_0$ of $p(z)$. Equivalently,
+
+$$
+p'(z_0) = \frac{df(z)}{dz}|_{z=z_0} = 0.
+$$
+
++ Step 2: Use Taylor expansion on $\text{ln} f(z)$ centered on the mode $z_0$.
+
+$$
+\text{ln} f(z) \simeq \text{ln}f(z_0) - \frac{1}{2}A(z-z_0)^2
+$$
+
+where 
+
+$$
+A = -\frac{d^2}{dz^2} \text{ln}f(z)|_{z=z_0}
+$$
+
++ Step 3: Take the exponential.
+
+
+$$
+f(z) \simeq f(z_0) \text{exp}\{-\frac{A}{2}(z-z_0)^2\}
+$$
+
++ Step 4: Normalization.
+
+$$
+q(z) = (\frac{A}{2\pi})^{1/2} \text{exp}\{-\frac{A}{2}(z-z_0)^2\}
+$$
+
+Similarly, for M-dimensional space $\boldsymbol{z}$, we have 
+
+$$
+q(\boldsymbol{z}) = \frac{|\boldsymbol{A}|^{1/2}}{(2\pi)^{M/2}} \text{exp}\{-\frac{1}{2} (\boldsymbol{z} - \boldsymbol{z_0})^T \boldsymbol{A} (\boldsymbol{z} - \boldsymbol{z_0})\} = \mathcal{N}(\boldsymbol{z}|\boldsymbol{z_0}, \boldsymbol{A}^{-1}),
+$$
+
+where $\boldsymbol{A}$ is a M $\times$ M Hessian matrix defined by
+
+$$
+\boldsymbol{A} = - \nabla \nabla\text{ln}f(\boldsymbol{z})|_{\boldsymbol{z}=\boldsymbol{z_0}}.
+$$
+
+**Remarks about this approximation**:
+
++ In practice, a mode will typically found by running some form of numerical optimization algorithm. 
+
++ Laplace approximation is most useful when the number of data points is relatively large. This is because the posterior distribtuion is expected to approximate Gaussian as the number of observed data points increases due to central limit theorem.
+
++ The serious limitation: it is based purely on the true distribution at a specific value (local maximum). So it can fail to capture important global properties. 
+
+
+
+

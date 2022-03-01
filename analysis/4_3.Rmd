@@ -1,0 +1,78 @@
+---
+title: "4.3 Probabilistic Discriminative Models"
+output:
+  html_document:
+  workflowr::wflow_html:
+    code_folding: hide
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 4.3.3 Iterative reweighted least squares
+
+**Newton-Raphson method**: For minimizing a function $E(\boldsymbol{w})$, it takes the following form
+
+$$
+\boldsymbol{w}^{(\text{new})} = \boldsymbol{w}^{(\text{old})} - \boldsymbol{H}^{-1}\nabla E(\boldsymbol{w})
+$$
+
+where $\boldsymbol{H}$ is the Hessian matrix whose elements comprise the second derivative of $E(\boldsymbol{w})$ with respect to the components of $\boldsymbol{w}$. 
+
+
++ Given the linear regression model, the update is 
+
+$$
+\boldsymbol{w}^{(\text{new})} = (\boldsymbol{\Phi}^T \boldsymbol{\Phi})^{-1} \boldsymbol{\Phi}^T \boldsymbol{t}.
+$$
+This is the same as standard least squares, but the Newton-Raphson formula just gives the exact solution in one step. 
+
++ Given the logistic regression model, the update is
+
+$$
+\boldsymbol{w}^{(\text{new})} = (\boldsymbol{\Phi}^T \boldsymbol{R} \boldsymbol{\Phi})^{-1} \boldsymbol{\Phi}^T \boldsymbol{R}\boldsymbol{z},
+$$
+where 
+
+$$
+R_{nn} = y_n(1-y_n)
+$$
+
+and 
+
+$$
+\boldsymbol{z} = \boldsymbol{\Phi}\boldsymbol{w}^{(\text{old})} - \boldsymbol{R}^{-1}(\boldsymbol{y} - \boldsymbol{t}).
+$$
+The weighing matrix $\boldsymbol{R}$ is not constant but depends on $\boldsymbol{w}$, so the algorithm is known as *iterative reweighted least squares*.
+
+## 4.3.4 Probit regression
+
+**Probit function**: the inverse of the cumulative :
+
+$$
+\text{probit}(p) = \Phi^{-1}(p) \text{ for } p \in (0,1).
+$$
+
+**Probit regression model**: For binary $Y$,
+
+$$
+\text{Pr}(Y=1|X) = \Phi (X^T\beta),
+$$
+where $\Phi(.)$ is the cumulative distribution function of the standard normal distribution. 
+
+## 4.3.6 Canonical link function
+
+In the generalized linear model,
+
+$$
+y = f(\boldsymbol{w}^T \boldsymbol{\phi}),
+$$
+where $f(.)$ is called activation function and $f^{-1}(.)$ is called link function.
+
+
+
+
+
+
