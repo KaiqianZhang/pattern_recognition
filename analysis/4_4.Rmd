@@ -1,5 +1,5 @@
 ---
-title: "4.4 The Laplace Approximation"
+title: "4.4 - 4.5 The Laplace Approximation"
 output:
   html_document:
   workflowr::wflow_html:
@@ -21,7 +21,7 @@ $$
 
 where $Z = \int f(z) dz$ is the normalization coefficient. We want to find the Laplace approximation to $p(z)$. i.e., find a Gaussian distribution that can approximate $p(z)$. 
 
-+ Step 1: find the mode $z_0$ of $p(z)$. Equivalently,
++ Step 1: Find the mode $z_0$ of $p(z)$. Equivalently,
 
 $$
 p'(z_0) = \frac{df(z)}{dz}|_{z=z_0} = 0.
@@ -73,5 +73,39 @@ $$
 + The serious limitation: it is based purely on the true distribution at a specific value (local maximum). So it can fail to capture important global properties. 
 
 
+**Application 1: Bayesian logistic regression**:
 
+Exact Bayesian inference of logistic regression is intractable. Consider the problem of Bayesian logistic regression. The prior is 
 
+$$
+p(\boldsymbol{w}) = \mathcal{N}(\boldsymbol{w}|\boldsymbol{m}_0, \boldsymbol{S}_0).
+$$
+
+The posterior is 
+
+$$
+p(\boldsymbol{w}|\boldsymbol{t}) \propto p(\boldsymbol{w})p(\boldsymbol{t}|\boldsymbol{w}).
+$$
+
+We apply Laplace approximation to the posterior distribution. Then $\boldsymbol{w}_{\text{MAP}}$ is the mode and the covariance is then given by the inverse of the matrix of second derivatives of the negative log posterior such that 
+
+$$
+\boldsymbol{S}_N^{-1} = -\nabla\nabla \text{ln}p(\boldsymbol{w}|\boldsymbol{t}).
+$$
+The Gaussian approximation to the posterior distribution gives
+
+$$
+q(\boldsymbol{w}) = \mathcal{N}(\boldsymbol{w}|\boldsymbol{w}_{\text{MAP}}, \boldsymbol{S}_N)
+$$
+
+**Application 2: BIC model comparison**:
+
+Bayesian Information Criterion (BIC):
+
+$$
+\text{ln}p(\mathcal{D}) \simeq \text{ln}p(\mathcal{D}|\boldsymbol{\theta}_{\text{MAP}}) - \frac{1}{2}M \text{ln} N
+$$
+
+where $N$ is the number of data points, $M$ is the number of parameters in $\boldsymbol{\theta}$. The second term penalizes the complexity.
+
++ Compared to AIC, BIC penalizes model complexity more heavily. 

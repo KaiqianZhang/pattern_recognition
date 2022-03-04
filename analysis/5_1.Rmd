@@ -1,0 +1,28 @@
+---
+title: "5.1 Feed-forward Network Functions"
+output:
+  html_document:
+  workflowr::wflow_html:
+    code_folding: hide
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Two-layer network
+
+![](assets/2_layer_network.png)
+
+Each hidden unit is
+
+$$
+z_k = h(\sum_j w_{kj}z_j)
+$$
+
+## Feed-forward architecture
+
+Feed-forward architecture means that one having no closed directed cycles, to ensure that the outputs are deterministic functions of the inputs. 
+
+

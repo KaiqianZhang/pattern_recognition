@@ -11,7 +11,7 @@
 
 
 
-<title>4.4 The Laplace Approximation</title>
+<title>4.4 - 4.5 The Laplace Approximation</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -360,7 +360,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">4.4 The Laplace Approximation</h1>
+<h1 class="title toc-ignore">4.4 - 4.5 The Laplace Approximation</h1>
 
 </div>
 
@@ -385,7 +385,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2022-02-28
+<strong>Last updated:</strong> 2022-03-02
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
@@ -409,7 +409,7 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 </div>
 <div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -476,16 +476,16 @@ This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a> analysi
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomKaiqianZhangpatternrecognitiontreec19d0e20133fbe10ebe8208ab83fa05f1ff14be5targetblankc19d0e2a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/KaiqianZhang/pattern_recognition/tree/c19d0e20133fbe10ebe8208ab83fa05f1ff14be5" target="_blank">c19d0e2</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomKaiqianZhangpatternrecognitiontreeeaf79a8f1c46d323e50d6aa109c503f1ca3cb0batargetblankeaf79a8a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/KaiqianZhang/pattern_recognition/tree/eaf79a8f1c46d323e50d6aa109c503f1ca3cb0ba" target="_blank">eaf79a8</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomKaiqianZhangpatternrecognitiontreec19d0e20133fbe10ebe8208ab83fa05f1ff14be5targetblankc19d0e2a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomKaiqianZhangpatternrecognitiontreeeaf79a8f1c46d323e50d6aa109c503f1ca3cb0batargetblankeaf79a8a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/KaiqianZhang/pattern_recognition/tree/c19d0e20133fbe10ebe8208ab83fa05f1ff14be5" target="_blank">c19d0e2</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/KaiqianZhang/pattern_recognition/tree/eaf79a8f1c46d323e50d6aa109c503f1ca3cb0ba" target="_blank">eaf79a8</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -497,11 +497,8 @@ Ignored files:
     Ignored:    .Rproj.user/
     Ignored:    analysis/.Rhistory
 
-Untracked files:
-    Untracked:  analysis/4_3.Rmd
-    Untracked:  analysis/4_4.Rmd
-
 Unstaged changes:
+    Modified:   analysis/4_4.Rmd
     Modified:   analysis/index.Rmd
 
 </code></pre>
@@ -515,9 +512,69 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/4_4.Rmd</code>) and HTML (<code>docs/4_4.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/KaiqianZhang/pattern_recognition/blob/eaf79a8f1c46d323e50d6aa109c503f1ca3cb0ba/analysis/4_4.Rmd" target="_blank">eaf79a8</a>
+</td>
+<td>
+Kaiqian Zhang
+</td>
+<td>
+2022-02-28
+</td>
+<td>
+add reading notes on 4_3 and 4_4
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/KaiqianZhang/pattern_recognition/eaf79a8f1c46d323e50d6aa109c503f1ca3cb0ba/docs/4_4.html" target="_blank">eaf79a8</a>
+</td>
+<td>
+Kaiqian Zhang
+</td>
+<td>
+2022-02-28
+</td>
+<td>
+add reading notes on 4_3 and 4_4
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
@@ -529,7 +586,7 @@ p(z) = \frac{1}{Z}f(z),
 \]</span></p>
 <p>where <span class="math inline">\(Z = \int f(z) dz\)</span> is the normalization coefficient. We want to find the Laplace approximation to <span class="math inline">\(p(z)\)</span>. i.e., find a Gaussian distribution that can approximate <span class="math inline">\(p(z)\)</span>.</p>
 <ul>
-<li>Step 1: find the mode <span class="math inline">\(z_0\)</span> of <span class="math inline">\(p(z)\)</span>. Equivalently,</li>
+<li>Step 1: Find the mode <span class="math inline">\(z_0\)</span> of <span class="math inline">\(p(z)\)</span>. Equivalently,</li>
 </ul>
 <p><span class="math display">\[
 p&#39;(z_0) = \frac{df(z)}{dz}|_{z=z_0} = 0.
@@ -570,6 +627,31 @@ q(\boldsymbol{z}) = \frac{|\boldsymbol{A}|^{1/2}}{(2\pi)^{M/2}} \text{exp}\{-\fr
 <li><p>Laplace approximation is most useful when the number of data points is relatively large. This is because the posterior distribtuion is expected to approximate Gaussian as the number of observed data points increases due to central limit theorem.</p></li>
 <li><p>The serious limitation: it is based purely on the true distribution at a specific value (local maximum). So it can fail to capture important global properties.</p></li>
 </ul>
+<p><strong>Application 1: Bayesian logistic regression</strong>:</p>
+<p>Exact Bayesian inference of logistic regression is intractable. Consider the problem of Bayesian logistic regression. The prior is</p>
+<p><span class="math display">\[
+p(\boldsymbol{w}) = \mathcal{N}(\boldsymbol{w}|\boldsymbol{m}_0, \boldsymbol{S}_0).
+\]</span></p>
+<p>The posterior is</p>
+<p><span class="math display">\[
+p(\boldsymbol{w}|\boldsymbol{t}) \propto p(\boldsymbol{w})p(\boldsymbol{t}|\boldsymbol{w}).
+\]</span></p>
+<p>We apply Laplace approximation to the posterior distribution. Then <span class="math inline">\(\boldsymbol{w}_{\text{MAP}}\)</span> is the mode and the covariance is then given by the inverse of the matrix of second derivatives of the negative log posterior such that</p>
+<p><span class="math display">\[
+\boldsymbol{S}_N^{-1} = -\nabla\nabla \text{ln}p(\boldsymbol{w}|\boldsymbol{t}).
+\]</span> The Gaussian approximation to the posterior distribution gives</p>
+<p><span class="math display">\[
+q(\boldsymbol{w}) = \mathcal{N}(\boldsymbol{w}|\boldsymbol{w}_{\text{MAP}}, \boldsymbol{S}_N)
+\]</span></p>
+<p><strong>Application 2: BIC model comparison</strong>:</p>
+<p>Bayesian Information Criterion (BIC):</p>
+<p><span class="math display">\[
+\text{ln}p(\mathcal{D}) \simeq \text{ln}p(\mathcal{D}|\boldsymbol{\theta}_{\text{MAP}}) - \frac{1}{2}M \text{ln} N
+\]</span></p>
+<p>where <span class="math inline">\(N\)</span> is the number of data points, <span class="math inline">\(M\)</span> is the number of parameters in <span class="math inline">\(\boldsymbol{\theta}\)</span>. The second term penalizes the complexity.</p>
+<ul>
+<li>Compared to AIC, BIC penalizes model complexity more heavily.</li>
+</ul>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -593,15 +675,15 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.7       knitr_1.36       magrittr_2.0.1   workflowr_1.7.0 
- [5] R6_2.5.1         rlang_0.4.12     fastmap_1.1.0    fansi_0.5.0     
- [9] stringr_1.4.0    tools_4.1.1      xfun_0.28        utf8_1.2.2      
-[13] git2r_0.28.0     jquerylib_0.1.4  htmltools_0.5.2  ellipsis_0.3.2  
-[17] rprojroot_2.0.2  yaml_2.2.1       digest_0.6.29    tibble_3.1.6    
-[21] lifecycle_1.0.1  crayon_1.4.2     later_1.3.0      vctrs_0.3.8     
-[25] promises_1.2.0.1 fs_1.5.0         glue_1.5.1       evaluate_0.14   
-[29] rmarkdown_2.11   stringi_1.7.6    compiler_4.1.1   pillar_1.6.4    
-[33] httpuv_1.6.3     pkgconfig_2.0.3 </code></pre>
+ [1] Rcpp_1.0.7       whisker_0.4      knitr_1.36       magrittr_2.0.1  
+ [5] workflowr_1.7.0  R6_2.5.1         rlang_0.4.12     fastmap_1.1.0   
+ [9] fansi_0.5.0      stringr_1.4.0    tools_4.1.1      xfun_0.28       
+[13] utf8_1.2.2       git2r_0.28.0     jquerylib_0.1.4  htmltools_0.5.2 
+[17] ellipsis_0.3.2   rprojroot_2.0.2  yaml_2.2.1       digest_0.6.29   
+[21] tibble_3.1.6     lifecycle_1.0.1  crayon_1.4.2     later_1.3.0     
+[25] vctrs_0.3.8      promises_1.2.0.1 fs_1.5.0         glue_1.5.1      
+[29] evaluate_0.14    rmarkdown_2.11   stringi_1.7.6    compiler_4.1.1  
+[33] pillar_1.6.4     httpuv_1.6.3     pkgconfig_2.0.3 </code></pre>
 </div>
 
 

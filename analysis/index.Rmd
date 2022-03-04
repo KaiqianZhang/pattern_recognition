@@ -50,7 +50,17 @@ This website is to track my reading on the book Pattern Recognition and Machine 
 
 + [4.3 Probabilistic Discriminative Models](4_3.html)
 
-+ [4.4 The Laplace Approximation](4_4.html)
++ [4.4 - 4.5 The Laplace Approximation](4_4.html)
+
+
+**Chapter 5: Neural Networks**
+
++ [5.1 Feed-forward Network Functions](5_1.html)
+
+
+
+
+
 
 
 
