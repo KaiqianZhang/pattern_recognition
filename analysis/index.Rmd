@@ -57,6 +57,8 @@ This website is to track my reading on the book Pattern Recognition and Machine 
 
 + [5.1 Feed-forward Network Functions](5_1.html)
 
++ [5.2 Network Training](5_2.html)
+
 
 
 

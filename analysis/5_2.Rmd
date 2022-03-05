@@ -1,0 +1,43 @@
+---
+title: "5.2 Network Training"
+output:
+  html_document:
+  workflowr::wflow_html:
+    code_folding: hide
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 5.2.2 Local quadratic approximation
+
+Consider the Taylor expansion of the error function $E(\boldsymbol{w})$ around some point $\hat{\boldsymbol{w}}$ in weight space:
+
+$$
+E(\boldsymbol{w}) \simeq E(\hat{\boldsymbol{w}}) + (\boldsymbol{w} - \hat{\boldsymbol{w}})^T\boldsymbol{b} + \frac{1}{2} (\boldsymbol{w} - \hat{\boldsymbol{w}})^T \boldsymbol{H}  (\boldsymbol{w} - \hat{\boldsymbol{w}})
+$$
+
+where 
+
+$$
+\boldsymbol{b} \equiv \nabla E|_{\boldsymbol{w}=\hat{\boldsymbol{w}}}
+$$
+
+and the Hessian matrix $\boldsymbol{H} \equiv \nabla \nabla E$ has elements
+
+$$
+(\boldsymbol{H})_{ij} \equiv  \frac{\partial E}{\partial w_i \partial w_j}|_{\boldsymbol{w}=\hat{\boldsymbol{w}}}.
+$$
+
+Then the local approximation to the gradient is given by
+
+$$
+\nabla E \simeq \boldsymbol{b} + \boldsymbol{H} (\boldsymbol{w} - \hat{\boldsymbol{w}}). 
+$$
+
+
+
+
+
