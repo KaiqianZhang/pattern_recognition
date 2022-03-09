@@ -1,0 +1,82 @@
+---
+title: "5.3 Error Backpropagation"
+output:
+  html_document:
+  workflowr::wflow_html:
+    code_folding: hide
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## One activation function $\text{tanh}(.)$
+
+Given one activation function:
+
+$$
+h(a) \equiv \text{tanh}(a) = \frac{e^a - e^{-a}}{e^a + e^{-a}}.
+$$
+
+One useful feature of this function is that its derivative can be expressed in a particular simple form:
+
+$$
+h'(a) = 1 - h(a)^2.
+$$
+
+
+## One simple example on error back propagation
+
+Consider a standard sum-of-squares error function, so that for pattern $n$ the error is given by 
+
+$$
+E_n = \frac{1}{2} \sum_{k=1}^{K} (y_k - t_k)^2.
+$$
+
+Consider also the following two-layer network:
+
+\begin{align}
+a_j &= \sum_{i=0}^{D} w_{ji}^{(1)} x_i \\
+z_j &= \text{tanh}(a_j) \\
+y_k &= \sum_{j=0}^{M} w_{kj}^{(2)} z_j, \\
+\end{align}
+
+where $D$ is the dimension of input $\boldsymbol{x}$, $K$ is the dimension of ouput $\boldsymbol{y}$, $z_j$ is the hidden unit, $(1)$ denotes the first layer, and $(2)$ denotes the second layer. 
+
+
++ **Step 1**: Compute error $\delta$'s for each output $k=1,\dots, K$ using 
+
+$$
+\delta_k = y_k - t_k,
+$$
+
+where $y_k$ is the output and $t_k$ is the target.
+
+
++ **Step 2**: Backpropagate $\delta$'s obtained from step 1 to get $\delta$'s for the hidden units (for $j=0,1,\dots, M$) using 
+
+$$
+\delta_j = (1-z_j^2) \sum_{k=1}^{K}  w_{kj} \delta_k.
+$$
+
++ **Step 3**: The derivatives with respect to the first-layer and second-layer weights are given by 
+
+\begin{align}
+\frac{\partial E_n}{\partial w_{ji}^{(1)}} &= \delta_j x_i \\
+\frac{\partial E_n}{\partial w_{kj}^{(2)}} &= \delta_k z_j. 
+\end{align}
+
++ **Step 4**: For a batch, the derivative of the totoal error $E$ can be obtained by
+
+$$
+\frac{\partial E}{\partial w_{ji}} = \sum_n \frac{\partial E_n}{\partial w_{ji}}.
+$$
+
+
+
+
+
+
+
+
